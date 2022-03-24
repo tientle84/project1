@@ -4,11 +4,11 @@ import java.util.Objects;
 
 public class UserRole {
     private int userRoleId;
-    private int userRole;
+    private String userRole;
 
     public UserRole() {}
 
-    public UserRole(int userRoleId, int userRole) {
+    public UserRole(int userRoleId, String userRole) {
         this.userRoleId = userRoleId;
         this.userRole = userRole;
     }
@@ -21,11 +21,11 @@ public class UserRole {
         this.userRoleId = userRoleId;
     }
 
-    public int getUserRole() {
+    public String getUserRole() {
         return userRole;
     }
 
-    public void setUserRole(int userRole) {
+    public void setUserRole(String userRole) {
         this.userRole = userRole;
     }
 
@@ -34,7 +34,7 @@ public class UserRole {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         UserRole userRole1 = (UserRole) o;
-        return userRoleId == userRole1.userRoleId && userRole == userRole1.userRole;
+        return userRoleId == userRole1.userRoleId && Objects.equals(userRole, userRole1.userRole);
     }
 
     @Override
@@ -46,7 +46,7 @@ public class UserRole {
     public String toString() {
         return "UserRole{" +
                 "userRoleId=" + userRoleId +
-                ", userRole=" + userRole +
+                ", userRole='" + userRole + '\'' +
                 '}';
     }
 }

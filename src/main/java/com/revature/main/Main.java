@@ -3,6 +3,7 @@ package com.revature.main;
 import com.revature.controller.AuthController;
 import com.revature.controller.Controller;
 import com.revature.controller.ExceptionController;
+import com.revature.controller.ReimbursementController;
 import io.javalin.Javalin;
 
 public class Main {
@@ -22,7 +23,7 @@ public class Main {
 //            logger.info(ctx.method() + " request has a response status " + ctx.status());
 //        });
 
-        mapControllers(app, new AuthController(), new ExceptionController());
+        mapControllers(app, new AuthController(), new ReimbursementController(), new ExceptionController());
         app.start(getHerokuAssignedPort());
         //app.start(7777);
     }

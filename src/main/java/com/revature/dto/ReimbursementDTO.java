@@ -1,30 +1,33 @@
-package com.revature.model;
+package com.revature.dto;
+
 import java.util.Objects;
 
-public class Reimbursement {
+public class ReimbursementDTO {
     private int reimbursementId;
     private double reimbursementAmount;
     private String reimbursementSubmitted;
     private String reimbursementResolved;
     private String reimbursementDescription;
     private String reimbursementReceipt;
-    private User reimbursementAuthor;
-    private User reimbursementResolver;
-    private ReimbursementStatus reimbursementStatus;
-    private ReimbursementType reimbursementType;
+    private String authorFullName;
+    private String resolverFullName;
+    private String reimbursementStatus;
+    private int reimbursementTypeId;
+    private String reimbursementType;
 
-    public Reimbursement() {}
+    public ReimbursementDTO() {}
 
-    public Reimbursement(int reimbursementId, double reimbursementAmount, String reimbursementSubmitted, String reimbursementResolved, String reimbursementDescription, String reimbursementReceipt, User reimbursementAuthor, User reimbursementResolver, ReimbursementStatus reimbursementStatus, ReimbursementType reimbursementType) {
+    public ReimbursementDTO(int reimbursementId, double reimbursementAmount, String reimbursementSubmitted, String reimbursementResolved, String reimbursementDescription, String reimbursementReceipt, String authorFullName, String resolverFullName, String reimbursementStatus, int reimbursementTypeId, String reimbursementType) {
         this.reimbursementId = reimbursementId;
         this.reimbursementAmount = reimbursementAmount;
         this.reimbursementSubmitted = reimbursementSubmitted;
         this.reimbursementResolved = reimbursementResolved;
         this.reimbursementDescription = reimbursementDescription;
         this.reimbursementReceipt = reimbursementReceipt;
-        this.reimbursementAuthor = reimbursementAuthor;
-        this.reimbursementResolver = reimbursementResolver;
+        this.authorFullName = authorFullName;
+        this.resolverFullName = resolverFullName;
         this.reimbursementStatus = reimbursementStatus;
+        this.reimbursementTypeId = reimbursementTypeId;
         this.reimbursementType = reimbursementType;
     }
 
@@ -76,35 +79,43 @@ public class Reimbursement {
         this.reimbursementReceipt = reimbursementReceipt;
     }
 
-    public User getReimbursementAuthor() {
-        return reimbursementAuthor;
+    public String getAuthorFullName() {
+        return authorFullName;
     }
 
-    public void setReimbursementAuthor(User reimbursementAuthor) {
-        this.reimbursementAuthor = reimbursementAuthor;
+    public void setAuthorFullName(String authorFullName) {
+        this.authorFullName = authorFullName;
     }
 
-    public User getReimbursementResolver() {
-        return reimbursementResolver;
+    public String getResolverFullName() {
+        return resolverFullName;
     }
 
-    public void setReimbursementResolver(User reimbursementResolver) {
-        this.reimbursementResolver = reimbursementResolver;
+    public void setResolverFullName(String resolverFullName) {
+        this.resolverFullName = resolverFullName;
     }
 
-    public ReimbursementStatus getReimbursementStatus() {
+    public String getReimbursementStatus() {
         return reimbursementStatus;
     }
 
-    public void setReimbursementStatus(ReimbursementStatus reimbursementStatus) {
+    public void setReimbursementStatus(String reimbursementStatus) {
         this.reimbursementStatus = reimbursementStatus;
     }
 
-    public ReimbursementType getReimbursementType() {
+    public int getReimbursementTypeId() {
+        return reimbursementTypeId;
+    }
+
+    public void setReimbursementTypeId(int reimbursementTypeId) {
+        this.reimbursementTypeId = reimbursementTypeId;
+    }
+
+    public String getReimbursementType() {
         return reimbursementType;
     }
 
-    public void setReimbursementType(ReimbursementType reimbursementType) {
+    public void setReimbursementType(String reimbursementType) {
         this.reimbursementType = reimbursementType;
     }
 
@@ -112,28 +123,29 @@ public class Reimbursement {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Reimbursement that = (Reimbursement) o;
-        return reimbursementId == that.reimbursementId && Double.compare(that.reimbursementAmount, reimbursementAmount) == 0 && Objects.equals(reimbursementSubmitted, that.reimbursementSubmitted) && Objects.equals(reimbursementResolved, that.reimbursementResolved) && Objects.equals(reimbursementDescription, that.reimbursementDescription) && Objects.equals(reimbursementReceipt, that.reimbursementReceipt) && Objects.equals(reimbursementAuthor, that.reimbursementAuthor) && Objects.equals(reimbursementResolver, that.reimbursementResolver) && Objects.equals(reimbursementStatus, that.reimbursementStatus) && Objects.equals(reimbursementType, that.reimbursementType);
+        ReimbursementDTO that = (ReimbursementDTO) o;
+        return reimbursementId == that.reimbursementId && Double.compare(that.reimbursementAmount, reimbursementAmount) == 0 && reimbursementTypeId == that.reimbursementTypeId && Objects.equals(reimbursementSubmitted, that.reimbursementSubmitted) && Objects.equals(reimbursementResolved, that.reimbursementResolved) && Objects.equals(reimbursementDescription, that.reimbursementDescription) && Objects.equals(reimbursementReceipt, that.reimbursementReceipt) && Objects.equals(authorFullName, that.authorFullName) && Objects.equals(resolverFullName, that.resolverFullName) && Objects.equals(reimbursementStatus, that.reimbursementStatus) && Objects.equals(reimbursementType, that.reimbursementType);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(reimbursementId, reimbursementAmount, reimbursementSubmitted, reimbursementResolved, reimbursementDescription, reimbursementReceipt, reimbursementAuthor, reimbursementResolver, reimbursementStatus, reimbursementType);
+        return Objects.hash(reimbursementId, reimbursementAmount, reimbursementSubmitted, reimbursementResolved, reimbursementDescription, reimbursementReceipt, authorFullName, resolverFullName, reimbursementStatus, reimbursementTypeId, reimbursementType);
     }
 
     @Override
     public String toString() {
-        return "Reimbursement{" +
+        return "ReimbursementDTO{" +
                 "reimbursementId=" + reimbursementId +
                 ", reimbursementAmount=" + reimbursementAmount +
                 ", reimbursementSubmitted='" + reimbursementSubmitted + '\'' +
                 ", reimbursementResolved='" + reimbursementResolved + '\'' +
                 ", reimbursementDescription='" + reimbursementDescription + '\'' +
                 ", reimbursementReceipt='" + reimbursementReceipt + '\'' +
-                ", reimbursementAuthor=" + reimbursementAuthor +
-                ", reimbursementResolver=" + reimbursementResolver +
-                ", reimbursementStatus=" + reimbursementStatus +
-                ", reimbursementType=" + reimbursementType +
+                ", authorFullName='" + authorFullName + '\'' +
+                ", resolverFullName='" + resolverFullName + '\'' +
+                ", reimbursementStatus='" + reimbursementStatus + '\'' +
+                ", reimbursementTypeId=" + reimbursementTypeId +
+                ", reimbursementType='" + reimbursementType + '\'' +
                 '}';
     }
 }
