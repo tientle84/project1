@@ -232,4 +232,22 @@ public class ReimbursementDao {
 
         return  null;
     }
+
+    public boolean deleteReimbursement(int intUserId, int intReimbId) throws SQLException {
+        try (Connection connection = ConnectionUtility.getConnection()) {
+            String sql = "delete from ers_reimbursement where reimb_author = ? and reimb_id = ?";
+
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, intUserId);
+            preparedStatement.setInt(2, intReimbId);
+
+            int numberOfRecordsDeleted = preparedStatement.executeUpdate();
+
+            if(numberOfRecordsDeleted == 1) {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }

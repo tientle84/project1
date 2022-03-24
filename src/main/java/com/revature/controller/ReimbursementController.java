@@ -101,7 +101,11 @@ public class ReimbursementController implements Controller {
     };
 
     private final Handler deleteReimbursement = (ctx) -> {
+        String userId = ctx.pathParam("user_id");
+        String reimbId = ctx.pathParam("reimb_id");
 
+        boolean deleted = reimbursementService.deleteReimbursement(userId, reimbId);
+        ctx.json(deleted);
     };
 
     // ============================== for managers ============================== //
@@ -124,6 +128,9 @@ public class ReimbursementController implements Controller {
 
         // update a pending reimbursement (change information only)
         app.put("/users/{user_id}/reimbursements/{reimb_id}", updateReimbursement);
+
+        // delete a pending reimbursement
+        app.delete("/users/{user_id}/reimbursements/{reimb_id}", deleteReimbursement);
 
         // ============================== for managers ============================== //
         // get all reimbursements

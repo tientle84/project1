@@ -65,4 +65,11 @@ public class ReimbursementService {
 
         return reimbursementDao.updateReimbursement(intUserId, intReimbId, reimbursementDTO);
     }
+
+    public boolean deleteReimbursement(String userId, String reimbId) throws SQLException {
+        int intUserId = InfoValidator.isValidId(userId);
+        int intReimbId = InfoValidator.isValidId(reimbId);
+
+        return reimbursementDao.deleteReimbursement(intUserId, intReimbId);
+    }
 }
