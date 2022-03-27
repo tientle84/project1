@@ -8,11 +8,19 @@ version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
+    maven {
+        url 'https://repo.clojars.org'
+        name 'Clojars'
+    }
 }
 
 task stage(dependsOn: ['clean', 'build'])
 
 dependencies {
+    implementation platform('com.google.cloud:libraries-bom:25.0.0')
+    implementation 'com.google.cloud:google-cloud-storage'
+    implementation 'commons-io:commons-io:2.11.0'
+    implementation 'org.apache.commons:commons-lang3:3.12.0'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
     testImplementation 'org.mockito:mockito-core:4.3.1'

@@ -1,6 +1,5 @@
 package com.revature.controller;
 
-import com.revature.dao.ReimbursementDao;
 import com.revature.dto.ReimbursementDTO;
 import com.revature.service.JWTService;
 import com.revature.service.ReimbursementService;
@@ -8,6 +7,7 @@ import com.revature.utility.InfoValidator;
 import io.javalin.Javalin;
 import io.javalin.http.Handler;
 import io.javalin.http.UnauthorizedResponse;
+import io.javalin.http.UploadedFile;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 
@@ -85,19 +85,27 @@ public class ReimbursementController implements Controller {
 
     private final Handler createReimbursement = (ctx) -> {
         String userId = ctx.pathParam("user_id");
-        ReimbursementDTO reimbursementDTO = ctx.bodyAsClass(ReimbursementDTO.class);
 
-        ReimbursementDTO createdReimbursementDTO = reimbursementService.createReimbursement(userId, reimbursementDTO);
+        String amount = ctx.formParam("reimbursementAmount");
+        String description = ctx.formParam("reimbursementDescription");
+        String typeId = ctx.formParam("reimbursementTypeId");
+        UploadedFile receiptFile = ctx.uploadedFile("reimbursementReceipt");
+
+        ReimbursementDTO createdReimbursementDTO = reimbursementService.createReimbursement(userId, amount, description, typeId, receiptFile);
         ctx.json(createdReimbursementDTO);
     };
 
     private final Handler updateReimbursement = (ctx) -> {
         String userId = ctx.pathParam("user_id");
         String reimbId = ctx.pathParam("reimb_id");
-        ReimbursementDTO reimbursementDTO = ctx.bodyAsClass(ReimbursementDTO.class);
 
-        ReimbursementDTO createdReimbursementDTO = reimbursementService.updateReimbursement(userId, reimbId, reimbursementDTO);
-        ctx.json(createdReimbursementDTO);
+        String amount = ctx.formParam("reimbursementAmount");
+        String description = ctx.formParam("reimbursementDescription");
+        String typeId = ctx.formParam("reimbursementTypeId");
+        UploadedFile receiptFile = ctx.uploadedFile("reimbursementReceipt");
+
+        ReimbursementDTO updatedReimbursementDTO = reimbursementService.updateReimbursement(userId, reimbId, amount, description, typeId, receiptFile);
+        ctx.json(updatedReimbursementDTO);
     };
 
     private final Handler deleteReimbursement = (ctx) -> {
@@ -106,6 +114,10 @@ public class ReimbursementController implements Controller {
 
         boolean deleted = reimbursementService.deleteReimbursement(userId, reimbId);
         ctx.json(deleted);
+    };
+
+    private final Handler uploadFile = (ctx) -> {
+
     };
 
     // ============================== for managers ============================== //
@@ -131,6 +143,8 @@ public class ReimbursementController implements Controller {
 
         // delete a pending reimbursement
         app.delete("/users/{user_id}/reimbursements/{reimb_id}", deleteReimbursement);
+
+        app.post("/upload", uploadFile);
 
         // ============================== for managers ============================== //
         // get all reimbursements

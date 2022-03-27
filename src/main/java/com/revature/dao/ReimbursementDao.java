@@ -1,9 +1,18 @@
 package com.revature.dao;
 
+import com.google.cloud.storage.BlobId;
+import com.google.cloud.storage.BlobInfo;
+import com.google.cloud.storage.Storage;
+import com.google.cloud.storage.StorageOptions;
 import com.revature.dto.ReimbursementDTO;
 import com.revature.model.*;
 import com.revature.utility.ConnectionUtility;
+import com.revature.utility.UploadFile;
+import io.javalin.http.UploadedFile;
+import org.apache.commons.io.IOUtils;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +29,7 @@ public class ReimbursementDao {
 //
 //            while(resultSet.next()) {
 //                int id = resultSet.getInt("reimb_id");
-//                double amount = resultSet.getInt("reimb_amount");
+//                double amount = resultSet.getDouble("reimb_amount");
 //                String submitted = resultSet.getString("reimb_submitted");
 //                String resolved = resultSet.getString("reimb_resolved");
 //                String description = resultSet.getString("reimb_description");
@@ -38,50 +47,94 @@ public class ReimbursementDao {
         return reimbursements;
     }
 
-    public ReimbursementDTO createReimbursement(int userId, ReimbursementDTO reimbursementDTO) throws SQLException {
-        try (Connection connection = ConnectionUtility.getConnection()) {
-            String sql = "insert into ers_reimbursement " +
-                    "(reimb_submitted, reimb_amount, reimb_description, reimb_receipt, reimb_author, reimb_type_id) " +
-                    "values (CURRENT_DATE, ?, ?, ?, ?, ?)";
+    public ReimbursementDTO createReimbursement(int userId, double amount, String description, int typeId, UploadedFile receiptFile) throws SQLException, IOException {
+        String uploadedReceiptUrl = UploadFile.uploadFile(receiptFile);
 
-            PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            preparedStatement.setDouble(1, reimbursementDTO.getReimbursementAmount());
-            preparedStatement.setString(2, reimbursementDTO.getReimbursementDescription());
-            preparedStatement.setString(3, reimbursementDTO.getReimbursementReceipt());
-            preparedStatement.setInt(4, userId);
-            preparedStatement.setInt(5, reimbursementDTO.getReimbursementTypeId());
+        if(uploadedReceiptUrl != null) {
+            try (Connection connection = ConnectionUtility.getConnection()) {
+                String sql = "insert into ers_reimbursement " +
+                        "(reimb_submitted, reimb_amount, reimb_description, reimb_receipt, reimb_author, reimb_type_id) " +
+                        "values (CURRENT_DATE, ?, ?, ?, ?, ?)";
 
-            preparedStatement.executeUpdate();
+                PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+                preparedStatement.setDouble(1, amount);
+                preparedStatement.setString(2, description);
+                preparedStatement.setString(3, uploadedReceiptUrl);
+                preparedStatement.setInt(4, userId);
+                preparedStatement.setInt(5, typeId);
 
-            ResultSet resultSet = preparedStatement.getGeneratedKeys();
+                preparedStatement.executeUpdate();
 
-            resultSet.next();
-            int generatedId = resultSet.getInt(1);
-            return new ReimbursementDTO(generatedId, reimbursementDTO.getReimbursementAmount(), "", "", reimbursementDTO.getReimbursementDescription(), reimbursementDTO.getReimbursementReceipt(), "", "", "", reimbursementDTO.getReimbursementTypeId(), "");
+                ResultSet resultSet = preparedStatement.getGeneratedKeys();
+
+                resultSet.next();
+                int generatedId = resultSet.getInt(1);
+                return new ReimbursementDTO(generatedId, amount, "", "", description, uploadedReceiptUrl, "", "", "", typeId, "");
+            }
         }
+
+        return null;
     }
 
-    public ReimbursementDTO updateReimbursement(int userId, int reimbId, ReimbursementDTO reimbursementDTO) throws SQLException {
+//    public ReimbursementDTO createReimbursement(int userId, ReimbursementDTO reimbursementDTO) throws SQLException {
+//        try (Connection connection = ConnectionUtility.getConnection()) {
+//            String sql = "insert into ers_reimbursement " +
+//                    "(reimb_submitted, reimb_amount, reimb_description, reimb_receipt, reimb_author, reimb_type_id) " +
+//                    "values (CURRENT_DATE, ?, ?, ?, ?, ?)";
+//
+//            PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+//            preparedStatement.setDouble(1, reimbursementDTO.getReimbursementAmount());
+//            preparedStatement.setString(2, reimbursementDTO.getReimbursementDescription());
+//            preparedStatement.setString(3, reimbursementDTO.getReimbursementReceipt());
+//            preparedStatement.setInt(4, userId);
+//            preparedStatement.setInt(5, reimbursementDTO.getReimbursementTypeId());
+//
+//            preparedStatement.executeUpdate();
+//
+//            ResultSet resultSet = preparedStatement.getGeneratedKeys();
+//
+//            resultSet.next();
+//            int generatedId = resultSet.getInt(1);
+//            return new ReimbursementDTO(generatedId, reimbursementDTO.getReimbursementAmount(), "", "", reimbursementDTO.getReimbursementDescription(), reimbursementDTO.getReimbursementReceipt(), "", "", "", reimbursementDTO.getReimbursementTypeId(), "");
+//        }
+//    }
+
+    public ReimbursementDTO updateReimbursement(int userId, int reimbId, double amount, String description, int typeId, UploadedFile receiptFile) throws SQLException, IOException {
+        String uploadedReceiptUrl = "";
+        if(receiptFile != null) {
+            uploadedReceiptUrl = UploadFile.uploadFile(receiptFile);
+        }
+
         try (Connection connection = ConnectionUtility.getConnection()) {
             String sql = "update ers_reimbursement set " +
                     "reimb_amount = ?, " +
-                    "reimb_description = ?, " +
-                    "reimb_receipt = ?, " +
-                    "reimb_type_id = ? " +
-                    "where reimb_author = ? and reimb_id = ?";
+                    "reimb_description = ?, ";
+
+            if(receiptFile != null) {
+                sql += "reimb_type_id = ?, reimb_receipt = ? " +
+                        "where reimb_author = ? and reimb_id = ?";
+            } else {
+                sql += "reimb_type_id = ? " +
+                        "where reimb_author = ? and reimb_id = ?";
+            }
 
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setDouble(1, reimbursementDTO.getReimbursementAmount());
-            preparedStatement.setString(2, reimbursementDTO.getReimbursementDescription());
-            preparedStatement.setString(3, reimbursementDTO.getReimbursementReceipt());
-            preparedStatement.setInt(4, reimbursementDTO.getReimbursementTypeId());
-            preparedStatement.setInt(5, userId);
-            preparedStatement.setInt(6, reimbId);
+            preparedStatement.setDouble(1, amount);
+            preparedStatement.setString(2, description);
+            preparedStatement.setInt(3, typeId);
+            if(receiptFile != null) {
+                preparedStatement.setString(4, uploadedReceiptUrl);
+                preparedStatement.setInt(5, userId);
+                preparedStatement.setInt(6, reimbId);
+            } else {
+                preparedStatement.setInt(4, userId);
+                preparedStatement.setInt(5, reimbId);
+            }
 
             preparedStatement.executeUpdate();
         }
 
-        return new ReimbursementDTO(reimbId, reimbursementDTO.getReimbursementAmount(), "", "", reimbursementDTO.getReimbursementDescription(), reimbursementDTO.getReimbursementReceipt(), "", "", "", reimbursementDTO.getReimbursementTypeId(), "");
+        return new ReimbursementDTO(reimbId, amount, "", "", description, uploadedReceiptUrl, "", "", "", typeId, "");
     }
 
     public  List<ReimbursementDTO> getAllReimbursementsByUserId(int userId) throws SQLException {
@@ -106,7 +159,7 @@ public class ReimbursementDao {
 
             while(resultSet.next()) {
                 int id = resultSet.getInt("reimb_id");
-                double amount = resultSet.getInt("reimb_amount");
+                double amount = resultSet.getDouble("reimb_amount");
                 String submitted = resultSet.getString("reimb_submitted");
                 String resolved = resultSet.getString("reimb_resolved");
                 String description = resultSet.getString("reimb_description");
@@ -216,7 +269,7 @@ public class ReimbursementDao {
 
             if(resultSet.next()) {
                 int id = resultSet.getInt("reimb_id");
-                double amount = resultSet.getInt("reimb_amount");
+                double amount = resultSet.getDouble("reimb_amount");
                 String submitted = resultSet.getString("reimb_submitted");
                 String resolved = resultSet.getString("reimb_resolved");
                 String description = resultSet.getString("reimb_description");

@@ -8,7 +8,9 @@ import com.revature.exception.UserNotFoundException;
 import com.revature.model.Reimbursement;
 import com.revature.model.User;
 import com.revature.utility.InfoValidator;
+import io.javalin.http.UploadedFile;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -54,16 +56,26 @@ public class ReimbursementService {
         return this.reimbursementDao.getAllReimbursementsByUserId(userId);
     }
 
-    public ReimbursementDTO createReimbursement(String userId, ReimbursementDTO reimbursementDTO) throws SQLException {
+    public ReimbursementDTO createReimbursement(String userId, String amount, String description, String typeId, UploadedFile receiptFile) throws SQLException, IOException {
         int intUserId = InfoValidator.isValidId(userId);
-        return reimbursementDao.createReimbursement(intUserId, reimbursementDTO);
+        double doubleAmount = InfoValidator.isValidParam(amount);
+        int intTypeId = InfoValidator.isValidId(typeId);
+
+        return reimbursementDao.createReimbursement(intUserId, doubleAmount, description, intTypeId, receiptFile);
     }
 
-    public ReimbursementDTO updateReimbursement(String userId, String reimbId, ReimbursementDTO reimbursementDTO) throws SQLException {
+//    public ReimbursementDTO createReimbursement(String userId, ReimbursementDTO reimbursementDTO) throws SQLException {
+//        int intUserId = InfoValidator.isValidId(userId);
+//        return reimbursementDao.createReimbursement(intUserId, reimbursementDTO);
+//    }
+
+    public ReimbursementDTO updateReimbursement(String userId, String reimbId, String amount, String description, String typeId, UploadedFile receiptFile) throws SQLException, IOException {
         int intUserId = InfoValidator.isValidId(userId);
         int intReimbId = InfoValidator.isValidId(reimbId);
+        double doubleAmount = InfoValidator.isValidParam(amount);
+        int intTypeId = InfoValidator.isValidId(typeId);
 
-        return reimbursementDao.updateReimbursement(intUserId, intReimbId, reimbursementDTO);
+        return reimbursementDao.updateReimbursement(intUserId, intReimbId, doubleAmount, description, intTypeId, receiptFile);
     }
 
     public boolean deleteReimbursement(String userId, String reimbId) throws SQLException {
