@@ -11,6 +11,8 @@ import org.slf4j.LoggerFactory;
 import javax.security.auth.login.FailedLoginException;
 
 public class ExceptionController implements Controller {
+    //    private static Logger logger = LoggerFactory.getLogger(ClientService.class);
+
     private ExceptionHandler<FailedLoginException> failedLoginExceptionHandler = (exception, ctx) -> {
         ctx.status(400);
         ctx.json(exception.getMessage());
@@ -21,31 +23,23 @@ public class ExceptionController implements Controller {
         ctx.json(exception.getMessage());
     };
 
-//    private static Logger logger = LoggerFactory.getLogger(ClientService.class);
-//
-    private ExceptionHandler userNotFoundHandler = (e, ctx) -> {
+    private ExceptionHandler<UserNotFoundException> userNotFoundHandler = (exception, ctx) -> {
         //logger.warn("User does not exist. Exception message is " + e.getMessage());
         ctx.status(404);
-        ctx.json(e.getMessage());
+        ctx.json(exception.getMessage());
     };
 
-    private ExceptionHandler reimbursementNotFoundHandler = (e, ctx) -> {
+    private ExceptionHandler<ReimbursementNotFoundException> reimbursementNotFoundHandler = (e, ctx) -> {
         //logger.warn("Reimbursement does not exist. Exception message is " + e.getMessage());
         ctx.status(404);
         ctx.json(e.getMessage());
     };
-//
-//    private ExceptionHandler bankAccountNotFound = (e, ctx) -> {
-//        logger.warn("User attempted to retrieve an account that does not exist. Exception message is " + e.getMessage());
-//        ctx.status(404);
-//        ctx.json(e.getMessage());
-//    };
-//
-//    private ExceptionHandler invalidArg = (e, ctx) -> {
-//        logger.warn("User attempted to enter invalid data. Exception message is " + e.getMessage());
-//        ctx.status(400);
-//        ctx.json(e.getMessage());
-//    };
+
+    private ExceptionHandler<IllegalArgumentException> invalidArg = (exception, ctx) -> {
+        //logger.warn("User attempted to enter invalid data. Exception message is " + e.getMessage());
+        ctx.status(400);
+        ctx.json(exception.getMessage());
+    };
 
     @Override
     public void mapEndpoints(Javalin app) {
@@ -53,8 +47,6 @@ public class ExceptionController implements Controller {
         app.exception(FailedRegisterException.class, failedRegisterExceptionHandler);
         app.exception(UserNotFoundException.class, userNotFoundHandler);
         app.exception(ReimbursementNotFoundException.class, reimbursementNotFoundHandler);
-//        app.exception(ClientNotFoundException.class, clientNotFound);
-//        app.exception(BankAccountNotFoundException.class, bankAccountNotFound);
-//        app.exception(IllegalArgumentException.class, invalidArg);
+        app.exception(IllegalArgumentException.class, invalidArg);
     }
 }

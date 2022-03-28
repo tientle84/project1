@@ -40,15 +40,27 @@ public class ReimbursementService {
         }
     }
 
-    // check to see whether reimbursement exists or not
-    public Reimbursement ifReimbursementExist(int userId, int reimbursementId) throws SQLException, ReimbursementNotFoundException {
-        Reimbursement reimbursement = reimbursementDao.getReimbursementById(userId, reimbursementId);
+    // check to see whether reimbursement exists or not (for employees usage)
+    public ReimbursementDTO ifReimbursementExist(int userId, int reimbursementId) throws SQLException, ReimbursementNotFoundException {
+        ReimbursementDTO reimbursementDTO = reimbursementDao.getReimbursementByUserIdAndReimbId(userId, reimbursementId);
 
         // check if reimbursement is null, then throw exception
-        if(reimbursement == null) {
+        if(reimbursementDTO == null) {
             throw new ReimbursementNotFoundException("Could not find the reimbursement " + reimbursementId + " of the user " + userId + ".");
         } else {
-            return reimbursement;
+            return reimbursementDTO;
+        }
+    }
+
+    // check to see whether reimbursement exists or not (for managers usage)
+    public ReimbursementDTO ifReimbursementExist(int reimbursementId) throws SQLException, ReimbursementNotFoundException {
+        ReimbursementDTO reimbursementDTO = reimbursementDao.getReimbursementById(reimbursementId);
+
+        // check if reimbursement is null, then throw exception
+        if(reimbursementDTO == null) {
+            throw new ReimbursementNotFoundException("Could not find the reimbursement " + reimbursementId + ".");
+        } else {
+            return reimbursementDTO;
         }
     }
 
@@ -83,5 +95,17 @@ public class ReimbursementService {
         int intReimbId = InfoValidator.isValidId(reimbId);
 
         return reimbursementDao.deleteReimbursement(intUserId, intReimbId);
+    }
+
+    public List<ReimbursementDTO> getAllReimbursements() throws SQLException {
+        return reimbursementDao.getAllReimbursements();
+    }
+
+    public int authorizeReimbursement(String reimbursementId, String authorizedStatusId, int resolverId) throws SQLException, ReimbursementNotFoundException {
+        int intReimbursementId = InfoValidator.isValidId(reimbursementId);
+        int intAuthorizedStatusId = InfoValidator.isValidId(authorizedStatusId);
+        ifReimbursementExist(intReimbursementId);
+
+        return reimbursementDao.authorizeReimbursement(intReimbursementId, intAuthorizedStatusId, resolverId);
     }
 }

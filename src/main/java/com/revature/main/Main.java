@@ -5,23 +5,32 @@ import com.revature.controller.Controller;
 import com.revature.controller.ExceptionController;
 import com.revature.controller.ReimbursementController;
 import io.javalin.Javalin;
+import io.javalin.core.util.Header;
+import io.javalin.core.util.Headers;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.util.function.Supplier;
 
 public class Main {
+    public static Logger logger = LoggerFactory.getLogger(Main.class);
+
     public static void main(String[] args) {
         Javalin app = Javalin.create(config -> {
             config.enableCorsForAllOrigins();
+
         });
 
-//        // info logging before every single request
-//        app.before(ctx -> {
-//            logger.info(ctx.method() + " request received for " + ctx.path());
-//            logger.info(ctx.fullUrl());
-//        });
-//
-//        // info logging before every single request
-//        app.after(ctx -> {
-//            logger.info(ctx.method() + " request has a response status " + ctx.status());
-//        });
+        // info logging before every single request
+        app.before(ctx -> {
+            logger.info(ctx.method() + " request received for " + ctx.path());
+            logger.info(ctx.fullUrl());
+        });
+
+        // info logging after every single request
+        app.after(ctx -> {
+            logger.info(ctx.method() + " request has a response status " + ctx.status());
+        });
 
         mapControllers(app, new AuthController(), new ReimbursementController(), new ExceptionController());
         app.start(getHerokuAssignedPort());
