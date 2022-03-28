@@ -1,10 +1,9 @@
 package com.revature.service;
 
 import com.revature.dao.UserDao;
+import com.revature.exception.FailedLoginException;
 import com.revature.exception.FailedRegisterException;
 import com.revature.model.User;
-
-import javax.security.auth.login.FailedLoginException;
 import java.sql.SQLException;
 
 public class UserService {
