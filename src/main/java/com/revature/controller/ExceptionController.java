@@ -4,38 +4,43 @@ import com.revature.exception.FailedLoginException;
 import com.revature.exception.FailedRegisterException;
 import com.revature.exception.ReimbursementNotFoundException;
 import com.revature.exception.UserNotFoundException;
+import com.revature.service.ReimbursementService;
+import com.revature.service.UserService;
 import io.javalin.Javalin;
 import io.javalin.http.ExceptionHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class ExceptionController implements Controller {
-    //    private static Logger logger = LoggerFactory.getLogger(ClientService.class);
+    private static Logger userLogger = LoggerFactory.getLogger(UserService.class);
+    private static Logger reimbLogger = LoggerFactory.getLogger(ReimbursementService.class);
 
     private ExceptionHandler<FailedLoginException> failedLoginExceptionHandler = (exception, ctx) -> {
+        userLogger.warn("Login failed. Exception message is " + exception.getMessage());
         ctx.status(400);
         ctx.json(exception.getMessage());
     };
 
     private ExceptionHandler<FailedRegisterException> failedRegisterExceptionHandler = (exception, ctx) -> {
+        userLogger.warn("Register failed. Exception message is " + exception.getMessage());
         ctx.status(400);
         ctx.json(exception.getMessage());
     };
 
     private ExceptionHandler<UserNotFoundException> userNotFoundHandler = (exception, ctx) -> {
-        //logger.warn("User does not exist. Exception message is " + e.getMessage());
+        userLogger.warn("User does not exist. Exception message is " + exception.getMessage());
         ctx.status(404);
         ctx.json(exception.getMessage());
     };
 
-    private ExceptionHandler<ReimbursementNotFoundException> reimbursementNotFoundHandler = (e, ctx) -> {
-        //logger.warn("Reimbursement does not exist. Exception message is " + e.getMessage());
+    private ExceptionHandler<ReimbursementNotFoundException> reimbursementNotFoundHandler = (exception, ctx) -> {
+        reimbLogger.warn("Reimbursement does not exist. Exception message is " + exception.getMessage());
         ctx.status(404);
-        ctx.json(e.getMessage());
+        ctx.json(exception.getMessage());
     };
 
     private ExceptionHandler<IllegalArgumentException> invalidArg = (exception, ctx) -> {
-        //logger.warn("User attempted to enter invalid data. Exception message is " + e.getMessage());
+        reimbLogger.warn("User attempted to enter invalid data. Exception message is " + exception.getMessage());
         ctx.status(400);
         ctx.json(exception.getMessage());
     };

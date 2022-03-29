@@ -5,16 +5,14 @@ import com.revature.model.User;
 import com.revature.service.JWTService;
 import com.revature.service.UserService;
 import io.javalin.Javalin;
-import io.javalin.http.Cookie;
 import io.javalin.http.Handler;
-import io.javalin.http.SameSite;
 
 public class AuthController implements Controller{
     private JWTService jwtService;
     private UserService userService;
 
     public AuthController() {
-        this.jwtService = new JWTService();
+        this.jwtService = JWTService.getInstance();
         this.userService = new UserService();
     }
 
@@ -27,10 +25,10 @@ public class AuthController implements Controller{
 
         ctx.header("Access-Control-Expose-Headers", "*");
         ctx.header("Token", jwt);
+        ctx.json(user);
 
 //        Cookie cookie = new Cookie("jwt", jwt, "/", 86400, false , 0 ,true, "", "", SameSite.LAX);
 //        ctx.cookie(cookie);
-        ctx.json(user);
     };
 
     private  Handler register = (ctx) -> {

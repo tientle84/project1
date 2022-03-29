@@ -5,7 +5,6 @@ import com.revature.service.JWTService;
 import com.revature.service.ReimbursementService;
 import com.revature.utility.InfoValidator;
 import io.javalin.Javalin;
-import io.javalin.core.util.Header;
 import io.javalin.http.Handler;
 import io.javalin.http.UnauthorizedResponse;
 import io.javalin.http.UploadedFile;
@@ -19,50 +18,12 @@ public class ReimbursementController implements Controller {
     private ReimbursementService reimbursementService;
     
     public ReimbursementController() {
-        this.jwtService = new JWTService();
+        this.jwtService = JWTService.getInstance();
         this.reimbursementService = new ReimbursementService();
     }
 
-//    private final Handler getAllReimbursements = (ctx) -> {
-//        // get path param and query params
-//        String clientId = ctx.pathParam("client_id");
-//        String amountGreatThanParam = ctx.queryParam("amountGreatThan");
-//        String amountLessThanParam = ctx.queryParam("amountLessThan");
-//
-//        List<Reimbursement> reimbursements = reimbursementService.getAllReimbursements(clientId, amountGreatThanParam, amountLessThanParam);
-//
-//        // reimbursement may be an empty list when the client doesn't have any reimbursement
-//        // then we will print out a message if the client doesn't have any reimbursement
-//        if(reimbursements.isEmpty()){
-//            ctx.json("Could not find any reimbursement.");
-//        } else {
-//            ctx.json(reimbursements);
-//        }
-//    };
-
     // ============================== for employees ============================== //
     private final Handler getReimbursementsByUserId = (ctx) -> {
-
-//        if(ctx.cookie("jwt") != null) {
-//            String jwt = ctx.cookie("jwt");
-//            Jws<Claims> token = this.jwtService.parseJwt(jwt);
-//
-//            if(!token.getBody().get("user_role").equals(2)) {
-//                throw new UnauthorizedResponse("This endpoint is used by employees only.");
-//            }
-//
-//            String userId = ctx.pathParam("user_id");
-//            int intUserId = InfoValidator.isValidId(userId);
-//            if (!token.getBody().get("user_id").equals(intUserId)) {
-//                throw new UnauthorizedResponse("You can only obtain your reimbursement request.");
-//            }
-//
-//            List<Reimbursement> reimbursements = this.reimbursementService.getAllReimbursementsByUserId(intUserId);
-//            ctx.json(reimbursements);
-//        } else {
-//            ctx.result("You have to login.");
-//        }
-
         if(ctx.header("Authorization") != null) {
             String jwt = ctx.header("Authorization").split(" ")[1];
             Jws<Claims> token = this.jwtService.parseJwt(jwt);
@@ -85,40 +46,69 @@ public class ReimbursementController implements Controller {
     };
 
     private final Handler createReimbursement = (ctx) -> {
-        String userId = ctx.pathParam("user_id");
+        if(ctx.header("Authorization") != null) {
+            String jwt = ctx.header("Authorization").split(" ")[1];
+            Jws<Claims> token = this.jwtService.parseJwt(jwt);
 
-        String amount = ctx.formParam("reimbursementAmount");
-        String description = ctx.formParam("reimbursementDescription");
-        String typeId = ctx.formParam("reimbursementTypeId");
-        UploadedFile receiptFile = ctx.uploadedFile("reimbursementReceipt");
+            if(!token.getBody().get("user_role").equals(2)) {
+                throw new UnauthorizedResponse("This endpoint is used by employees only.");
+            }
 
-        ReimbursementDTO createdReimbursementDTO = reimbursementService.createReimbursement(userId, amount, description, typeId, receiptFile);
-        ctx.json(createdReimbursementDTO);
+            String userId = ctx.pathParam("user_id");
+
+            String amount = ctx.formParam("reimbursementAmount");
+            String description = ctx.formParam("reimbursementDescription");
+            String typeId = ctx.formParam("reimbursementTypeId");
+            UploadedFile receiptFile = ctx.uploadedFile("reimbursementReceipt");
+
+            ReimbursementDTO createdReimbursementDTO = reimbursementService.createReimbursement(userId, amount, description, typeId, receiptFile);
+            ctx.json(createdReimbursementDTO);
+        } else {
+            ctx.result("You have to login.");
+        }
     };
 
     private final Handler updateReimbursement = (ctx) -> {
-        String userId = ctx.pathParam("user_id");
-        String reimbId = ctx.pathParam("reimb_id");
+        if(ctx.header("Authorization") != null) {
+            String jwt = ctx.header("Authorization").split(" ")[1];
+            Jws<Claims> token = this.jwtService.parseJwt(jwt);
 
-        String amount = ctx.formParam("reimbursementAmount");
-        String description = ctx.formParam("reimbursementDescription");
-        String typeId = ctx.formParam("reimbursementTypeId");
-        UploadedFile receiptFile = ctx.uploadedFile("reimbursementReceipt");
+            if(!token.getBody().get("user_role").equals(2)) {
+                throw new UnauthorizedResponse("This endpoint is used by employees only.");
+            }
 
-        ReimbursementDTO updatedReimbursementDTO = reimbursementService.updateReimbursement(userId, reimbId, amount, description, typeId, receiptFile);
-        ctx.json(updatedReimbursementDTO);
+            String userId = ctx.pathParam("user_id");
+            String reimbId = ctx.pathParam("reimb_id");
+
+            String amount = ctx.formParam("reimbursementAmount");
+            String description = ctx.formParam("reimbursementDescription");
+            String typeId = ctx.formParam("reimbursementTypeId");
+            UploadedFile receiptFile = ctx.uploadedFile("reimbursementReceipt");
+
+            ReimbursementDTO updatedReimbursementDTO = reimbursementService.updateReimbursement(userId, reimbId, amount, description, typeId, receiptFile);
+            ctx.json(updatedReimbursementDTO);
+        } else {
+            ctx.result("You have to login.");
+        }
     };
 
     private final Handler deleteReimbursement = (ctx) -> {
-        String userId = ctx.pathParam("user_id");
-        String reimbId = ctx.pathParam("reimb_id");
+        if(ctx.header("Authorization") != null) {
+            String jwt = ctx.header("Authorization").split(" ")[1];
+            Jws<Claims> token = this.jwtService.parseJwt(jwt);
 
-        boolean deleted = reimbursementService.deleteReimbursement(userId, reimbId);
-        ctx.json(deleted);
-    };
+            if(!token.getBody().get("user_role").equals(2)) {
+                throw new UnauthorizedResponse("This endpoint is used by employees only.");
+            }
 
-    private final Handler uploadFile = (ctx) -> {
+            String userId = ctx.pathParam("user_id");
+            String reimbId = ctx.pathParam("reimb_id");
 
+            boolean deleted = reimbursementService.deleteReimbursement(userId, reimbId);
+            ctx.json(deleted);
+        } else {
+            ctx.result("You have to login.");
+        }
     };
 
     // ============================== for managers ============================== //
@@ -131,12 +121,6 @@ public class ReimbursementController implements Controller {
                 throw new UnauthorizedResponse("This endpoint is used by managers only.");
             }
 
-//            String userId = ctx.pathParam("user_id");
-//            int intUserId = InfoValidator.isValidId(userId);
-//            if (!token.getBody().get("user_id").equals(intUserId)) {
-//                throw new UnauthorizedResponse("You can only obtain your reimbursement request.");
-//            }
-
             List<ReimbursementDTO> reimbursements = this.reimbursementService.getAllReimbursements();
             ctx.json(reimbursements);
         } else {
@@ -145,39 +129,26 @@ public class ReimbursementController implements Controller {
     };
 
     private final Handler authorizeReimbursement = (ctx) -> {
-        if(ctx.req.getMethod() != "OPTIONS") {
-            ctx.header(Header.ACCESS_CONTROL_ALLOW_ORIGIN, "*");
-            ctx.header(Header.ACCESS_CONTROL_ALLOW_METHODS, "POST, GET, OPTIONS, DELETE, PUT, PATCH");
-            ctx.header(Header.ACCESS_CONTROL_MAX_AGE, "600");
-            ctx.header(Header.CONTENT_TYPE, "text/plain");
-            ctx.header(Header.CACHE_CONTROL, "604800");
+        if (ctx.header("Authorization") != null) {
+            String jwt = ctx.header("Authorization").split(" ")[1];
+            Jws<Claims> token = this.jwtService.parseJwt(jwt);
 
-            if (ctx.header("Authorization") != null) {
-                String jwt = ctx.header("Authorization").split(" ")[1];
-                Jws<Claims> token = this.jwtService.parseJwt(jwt);
-
-                if (!token.getBody().get("user_role").equals(1)) {
-                    throw new UnauthorizedResponse("This endpoint is used by managers only.");
-                }
-
-                String reimbursementId = ctx.pathParam("reimbursement_id");
-                String authorizedStatusId = ctx.queryParam("authorizedStatusId");
-                int resolverId = token.getBody().get("user_id", Integer.class);
-
-                if (authorizedStatusId == null) {
-                    throw new IllegalArgumentException("You need to provide the authorized status.");
-                }
-
-                int updatedRow = this.reimbursementService.authorizeReimbursement(reimbursementId, authorizedStatusId, resolverId);
-                ctx.json(updatedRow);
-//                if (updatedRow != 0) {
-//                    ctx.json("The reimbursement has been updated successfully.");
-//                } else {
-//                    ctx.json("Something went wrong.");
-//                }
-            } else {
-                ctx.json("You have to login.");
+            if (!token.getBody().get("user_role").equals(1)) {
+                throw new UnauthorizedResponse("This endpoint is used by managers only.");
             }
+
+            String reimbursementId = ctx.pathParam("reimbursement_id");
+            String authorizedStatusId = ctx.queryParam("authorizedStatusId");
+            int resolverId = token.getBody().get("user_id", Integer.class);
+
+            if (authorizedStatusId == null) {
+                throw new IllegalArgumentException("You need to provide the authorized status.");
+            }
+
+            int updatedRow = this.reimbursementService.authorizeReimbursement(reimbursementId, authorizedStatusId, resolverId);
+            ctx.json(updatedRow);
+        } else {
+            ctx.json("You have to login.");
         }
     };
 
@@ -195,8 +166,6 @@ public class ReimbursementController implements Controller {
 
         // delete a pending reimbursement
         app.delete("/users/{user_id}/reimbursements/{reimb_id}", deleteReimbursement);
-
-        app.post("/upload", uploadFile);
 
         // ============================== for managers ============================== //
         // get all reimbursements

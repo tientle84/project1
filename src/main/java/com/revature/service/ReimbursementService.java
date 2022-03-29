@@ -29,28 +29,28 @@ public class ReimbursementService {
     }
 
     // check to see whether user exists or not
-    public User ifUserExist(int userId) throws SQLException, UserNotFoundException {
-        User user = userDao.getUserById(userId);
-
-        // check if user is null, then throw exception
-        if(user == null) {
-            throw new UserNotFoundException("Could not find the user with id " + userId + ".");
-        } else {
-            return user;
-        }
-    }
+//    public User ifUserExist(int userId) throws SQLException, UserNotFoundException {
+//        User user = userDao.getUserById(userId);
+//
+//        // check if user is null, then throw exception
+//        if(user == null) {
+//            throw new UserNotFoundException("Could not find the user with id " + userId + ".");
+//        } else {
+//            return user;
+//        }
+//    }
 
     // check to see whether reimbursement exists or not (for employees usage)
-    public ReimbursementDTO ifReimbursementExist(int userId, int reimbursementId) throws SQLException, ReimbursementNotFoundException {
-        ReimbursementDTO reimbursementDTO = reimbursementDao.getReimbursementByUserIdAndReimbId(userId, reimbursementId);
-
-        // check if reimbursement is null, then throw exception
-        if(reimbursementDTO == null) {
-            throw new ReimbursementNotFoundException("Could not find the reimbursement " + reimbursementId + " of the user " + userId + ".");
-        } else {
-            return reimbursementDTO;
-        }
-    }
+//    public ReimbursementDTO ifReimbursementExist(int userId, int reimbursementId) throws SQLException, ReimbursementNotFoundException {
+//        ReimbursementDTO reimbursementDTO = reimbursementDao.getReimbursementByUserIdAndReimbId(userId, reimbursementId);
+//
+//        // check if reimbursement is null, then throw exception
+//        if(reimbursementDTO == null) {
+//            throw new ReimbursementNotFoundException("Could not find the reimbursement " + reimbursementId + " of the user " + userId + ".");
+//        } else {
+//            return reimbursementDTO;
+//        }
+//    }
 
     // check to see whether reimbursement exists or not (for managers usage)
     public ReimbursementDTO ifReimbursementExist(int reimbursementId) throws SQLException, ReimbursementNotFoundException {
@@ -64,6 +64,7 @@ public class ReimbursementService {
         }
     }
 
+    // this method is used by employee to get their reimbursements
     public List<ReimbursementDTO> getAllReimbursementsByUserId(int userId) throws SQLException {
         return this.reimbursementDao.getAllReimbursementsByUserId(userId);
     }
@@ -75,11 +76,6 @@ public class ReimbursementService {
 
         return reimbursementDao.createReimbursement(intUserId, doubleAmount, description, intTypeId, receiptFile);
     }
-
-//    public ReimbursementDTO createReimbursement(String userId, ReimbursementDTO reimbursementDTO) throws SQLException {
-//        int intUserId = InfoValidator.isValidId(userId);
-//        return reimbursementDao.createReimbursement(intUserId, reimbursementDTO);
-//    }
 
     public ReimbursementDTO updateReimbursement(String userId, String reimbId, String amount, String description, String typeId, UploadedFile receiptFile) throws SQLException, IOException {
         int intUserId = InfoValidator.isValidId(userId);
@@ -97,6 +93,7 @@ public class ReimbursementService {
         return reimbursementDao.deleteReimbursement(intUserId, intReimbId);
     }
 
+    // this method is used for manager to get all the Reimbursements
     public List<ReimbursementDTO> getAllReimbursements() throws SQLException {
         return reimbursementDao.getAllReimbursements();
     }

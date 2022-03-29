@@ -15,19 +15,11 @@ import java.io.InputStream;
 public class UploadFile {
     public static String uploadFile(UploadedFile receiptFile) throws IOException {
         // The ID of your GCP project
-        // String projectId = "your-project-id";
+        String projectId = "silent-bolt-343919";
 
         // The ID of your GCS bucket
-        // String bucketName = "your-unique-bucket-name";
-
-        // The ID of your GCS object
-        // String objectName = "your-object-name";
-
-        // The path to your file to upload
-        // String filePath = "path/to/your/file"
-
-        String projectId = "silent-bolt-343919";
         String bucketName = "project1-imgs";
+
         String fileName = RandomStringUtils.randomAlphanumeric(10);
         String objectName = "reimb_imgs/" + fileName + receiptFile.getExtension();
         String contentType = receiptFile.getContentType();

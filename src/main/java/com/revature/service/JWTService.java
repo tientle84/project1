@@ -10,11 +10,21 @@ import io.jsonwebtoken.security.Keys;
 import java.security.Key;
 
 public class JWTService {
+    private static JWTService instance;
     private Key key;
 
     public JWTService() {
         byte[] secret = "Zi9VakZYVZi9VakZYVFZHRkhVVWVVR2ZlQT09FZHRkhVVWVVR2ZlQT09".getBytes();
         key = Keys.hmacShaKeyFor(secret);
+    }
+
+    // singleton implementation
+    public static JWTService getInstance() {
+        if (JWTService.instance == null) {
+            JWTService.instance = new JWTService();
+        }
+
+        return JWTService.instance;
     }
 
     // sign a JWT with the key
@@ -37,7 +47,7 @@ public class JWTService {
 
             return token;
         } catch(JwtException e) {
-            throw new UnauthorizedResponse("JWT is invalid.");
+            throw new UnauthorizedResponse("The JWT is not valid.");
         }
     }
 }

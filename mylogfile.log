@@ -6034,3 +6034,310 @@ com.revature.exception.FailedLoginException: Invalid username or password.
 	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1034)
 	at java.lang.Thread.run(Thread.java:750)
 28 03 2022 - 12:29:38.711 [JettyServerThreadPool-17] INFO  com.revature.main.Main - POST request has a response status 500
+28 03 2022 - 12:34:16.914 [main] INFO  io.javalin.Javalin - 
+       __                      __ _            __ __
+      / /____ _ _   __ ____ _ / /(_)____      / // /
+ __  / // __ `/| | / // __ `// // // __ \    / // /_
+/ /_/ // /_/ / | |/ // /_/ // // // / / /   /__  __/
+\____/ \__,_/  |___/ \__,_//_//_//_/ /_/      /_/
+
+          https://javalin.io/documentation
+
+28 03 2022 - 12:34:16.926 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @447ms to org.eclipse.jetty.util.log.Slf4jLog
+28 03 2022 - 12:34:16.928 [main] INFO  io.javalin.Javalin - Starting Javalin ...
+28 03 2022 - 12:34:16.951 [main] INFO  io.javalin.Javalin - You are running Javalin 4.3.0 (released January 13, 2022).
+28 03 2022 - 12:34:17.265 [main] INFO  io.javalin.Javalin - Listening on http://localhost:7777/
+28 03 2022 - 12:34:17.266 [main] INFO  io.javalin.Javalin - Javalin started in 339ms \o/
+28 03 2022 - 12:34:59.578 [JettyServerThreadPool-16] INFO  com.revature.main.Main - OPTIONS request received for /login
+28 03 2022 - 12:34:59.579 [JettyServerThreadPool-16] INFO  com.revature.main.Main - http://localhost:7777/login
+28 03 2022 - 12:34:59.580 [JettyServerThreadPool-16] INFO  com.revature.main.Main - OPTIONS request has a response status 200
+28 03 2022 - 12:34:59.588 [JettyServerThreadPool-16] INFO  com.revature.main.Main - POST request received for /login
+28 03 2022 - 12:34:59.588 [JettyServerThreadPool-16] INFO  com.revature.main.Main - http://localhost:7777/login
+28 03 2022 - 12:35:00.837 [JettyServerThreadPool-16] INFO  com.revature.main.Main - POST request has a response status 200
+28 03 2022 - 12:35:00.891 [JettyServerThreadPool-13] INFO  com.revature.main.Main - OPTIONS request received for /users/41/reimbursements
+28 03 2022 - 12:35:00.891 [JettyServerThreadPool-13] INFO  com.revature.main.Main - http://localhost:7777/users/41/reimbursements
+28 03 2022 - 12:35:00.892 [JettyServerThreadPool-13] INFO  com.revature.main.Main - OPTIONS request has a response status 200
+28 03 2022 - 12:35:00.895 [JettyServerThreadPool-18] INFO  com.revature.main.Main - GET request received for /users/41/reimbursements
+28 03 2022 - 12:35:00.895 [JettyServerThreadPool-18] INFO  com.revature.main.Main - http://localhost:7777/users/41/reimbursements
+28 03 2022 - 12:35:01.465 [JettyServerThreadPool-18] INFO  com.revature.main.Main - GET request has a response status 200
+28 03 2022 - 12:35:12.348 [JettyServerThreadPool-17] INFO  com.revature.main.Main - OPTIONS request received for /login
+28 03 2022 - 12:35:12.348 [JettyServerThreadPool-17] INFO  com.revature.main.Main - http://localhost:7777/login
+28 03 2022 - 12:35:12.348 [JettyServerThreadPool-17] INFO  com.revature.main.Main - OPTIONS request has a response status 200
+28 03 2022 - 12:35:12.351 [JettyServerThreadPool-18] INFO  com.revature.main.Main - POST request received for /login
+28 03 2022 - 12:35:12.351 [JettyServerThreadPool-18] INFO  com.revature.main.Main - http://localhost:7777/login
+28 03 2022 - 12:35:12.941 [JettyServerThreadPool-18] INFO  com.revature.main.Main - POST request has a response status 400
+28 03 2022 - 12:35:21.739 [JettyServerThreadPool-17] INFO  com.revature.main.Main - OPTIONS request received for /login
+28 03 2022 - 12:35:21.740 [JettyServerThreadPool-17] INFO  com.revature.main.Main - http://localhost:7777/login
+28 03 2022 - 12:35:21.740 [JettyServerThreadPool-17] INFO  com.revature.main.Main - OPTIONS request has a response status 200
+28 03 2022 - 12:35:21.742 [JettyServerThreadPool-18] INFO  com.revature.main.Main - POST request received for /login
+28 03 2022 - 12:35:21.742 [JettyServerThreadPool-18] INFO  com.revature.main.Main - http://localhost:7777/login
+28 03 2022 - 12:35:22.302 [JettyServerThreadPool-18] INFO  com.revature.main.Main - POST request has a response status 400
+28 03 2022 - 12:35:28.800 [JettyServerThreadPool-17] INFO  com.revature.main.Main - OPTIONS request received for /login
+28 03 2022 - 12:35:28.800 [JettyServerThreadPool-17] INFO  com.revature.main.Main - http://localhost:7777/login
+28 03 2022 - 12:35:28.800 [JettyServerThreadPool-17] INFO  com.revature.main.Main - OPTIONS request has a response status 200
+28 03 2022 - 12:35:28.802 [JettyServerThreadPool-18] INFO  com.revature.main.Main - POST request received for /login
+28 03 2022 - 12:35:28.803 [JettyServerThreadPool-18] INFO  com.revature.main.Main - http://localhost:7777/login
+28 03 2022 - 12:35:29.385 [JettyServerThreadPool-18] INFO  com.revature.main.Main - POST request has a response status 200
+28 03 2022 - 12:35:29.447 [JettyServerThreadPool-17] INFO  com.revature.main.Main - OPTIONS request received for /users/41/reimbursements
+28 03 2022 - 12:35:29.447 [JettyServerThreadPool-17] INFO  com.revature.main.Main - http://localhost:7777/users/41/reimbursements
+28 03 2022 - 12:35:29.447 [JettyServerThreadPool-17] INFO  com.revature.main.Main - OPTIONS request has a response status 200
+28 03 2022 - 12:35:29.449 [JettyServerThreadPool-18] INFO  com.revature.main.Main - GET request received for /users/41/reimbursements
+28 03 2022 - 12:35:29.449 [JettyServerThreadPool-18] INFO  com.revature.main.Main - http://localhost:7777/users/41/reimbursements
+28 03 2022 - 12:35:29.955 [JettyServerThreadPool-18] INFO  com.revature.main.Main - GET request has a response status 200
+28 03 2022 - 12:36:21.946 [JettyServerThreadPool-14] INFO  com.revature.main.Main - OPTIONS request received for /users/41/reimbursements
+28 03 2022 - 12:36:21.946 [JettyServerThreadPool-14] INFO  com.revature.main.Main - http://localhost:7777/users/41/reimbursements
+28 03 2022 - 12:36:21.947 [JettyServerThreadPool-14] INFO  com.revature.main.Main - OPTIONS request has a response status 200
+28 03 2022 - 12:36:21.950 [JettyServerThreadPool-17] INFO  com.revature.main.Main - GET request received for /users/41/reimbursements
+28 03 2022 - 12:36:21.951 [JettyServerThreadPool-17] INFO  com.revature.main.Main - http://localhost:7777/users/41/reimbursements
+28 03 2022 - 12:36:22.471 [JettyServerThreadPool-17] INFO  com.revature.main.Main - GET request has a response status 200
+28 03 2022 - 12:36:29.663 [JettyServerThreadPool-13] INFO  com.revature.main.Main - OPTIONS request received for /login
+28 03 2022 - 12:36:29.663 [JettyServerThreadPool-13] INFO  com.revature.main.Main - http://localhost:7777/login
+28 03 2022 - 12:36:29.663 [JettyServerThreadPool-13] INFO  com.revature.main.Main - OPTIONS request has a response status 200
+28 03 2022 - 12:36:29.665 [JettyServerThreadPool-17] INFO  com.revature.main.Main - POST request received for /login
+28 03 2022 - 12:36:29.665 [JettyServerThreadPool-17] INFO  com.revature.main.Main - http://localhost:7777/login
+28 03 2022 - 12:36:30.224 [JettyServerThreadPool-17] INFO  com.revature.main.Main - POST request has a response status 200
+28 03 2022 - 12:36:30.296 [JettyServerThreadPool-13] INFO  com.revature.main.Main - OPTIONS request received for /users/41/reimbursements
+28 03 2022 - 12:36:30.296 [JettyServerThreadPool-13] INFO  com.revature.main.Main - http://localhost:7777/users/41/reimbursements
+28 03 2022 - 12:36:30.296 [JettyServerThreadPool-13] INFO  com.revature.main.Main - OPTIONS request has a response status 200
+28 03 2022 - 12:36:30.299 [JettyServerThreadPool-17] INFO  com.revature.main.Main - GET request received for /users/41/reimbursements
+28 03 2022 - 12:36:30.299 [JettyServerThreadPool-17] INFO  com.revature.main.Main - http://localhost:7777/users/41/reimbursements
+28 03 2022 - 12:36:30.789 [JettyServerThreadPool-17] INFO  com.revature.main.Main - GET request has a response status 200
+28 03 2022 - 12:37:30.023 [JettyServerThreadPool-15] INFO  com.revature.main.Main - OPTIONS request received for /users/41/reimbursements
+28 03 2022 - 12:37:30.023 [JettyServerThreadPool-15] INFO  com.revature.main.Main - http://localhost:7777/users/41/reimbursements
+28 03 2022 - 12:37:30.023 [JettyServerThreadPool-15] INFO  com.revature.main.Main - OPTIONS request has a response status 200
+28 03 2022 - 12:37:30.035 [JettyServerThreadPool-16] INFO  com.revature.main.Main - POST request received for /users/41/reimbursements
+28 03 2022 - 12:37:30.035 [JettyServerThreadPool-16] INFO  com.revature.main.Main - http://localhost:7777/users/41/reimbursements
+28 03 2022 - 12:37:32.323 [JettyServerThreadPool-16] INFO  com.revature.main.Main - POST request has a response status 200
+28 03 2022 - 12:37:32.429 [JettyServerThreadPool-13] INFO  com.revature.main.Main - GET request received for /users/41/reimbursements
+28 03 2022 - 12:37:32.429 [JettyServerThreadPool-13] INFO  com.revature.main.Main - http://localhost:7777/users/41/reimbursements
+28 03 2022 - 12:37:32.943 [JettyServerThreadPool-13] INFO  com.revature.main.Main - GET request has a response status 200
+28 03 2022 - 12:37:45.223 [JettyServerThreadPool-16] INFO  com.revature.main.Main - OPTIONS request received for /users/41/reimbursements/34
+28 03 2022 - 12:37:45.223 [JettyServerThreadPool-16] INFO  com.revature.main.Main - http://localhost:7777/users/41/reimbursements/34
+28 03 2022 - 12:37:45.223 [JettyServerThreadPool-16] INFO  com.revature.main.Main - OPTIONS request has a response status 200
+28 03 2022 - 12:37:45.224 [JettyServerThreadPool-13] INFO  com.revature.main.Main - PUT request received for /users/41/reimbursements/34
+28 03 2022 - 12:37:45.224 [JettyServerThreadPool-13] INFO  com.revature.main.Main - http://localhost:7777/users/41/reimbursements/34
+28 03 2022 - 12:37:45.739 [JettyServerThreadPool-13] INFO  com.revature.main.Main - PUT request has a response status 200
+28 03 2022 - 12:37:45.835 [JettyServerThreadPool-16] INFO  com.revature.main.Main - OPTIONS request received for /users/41/reimbursements
+28 03 2022 - 12:37:45.835 [JettyServerThreadPool-16] INFO  com.revature.main.Main - http://localhost:7777/users/41/reimbursements
+28 03 2022 - 12:37:45.835 [JettyServerThreadPool-16] INFO  com.revature.main.Main - OPTIONS request has a response status 200
+28 03 2022 - 12:37:45.838 [JettyServerThreadPool-13] INFO  com.revature.main.Main - GET request received for /users/41/reimbursements
+28 03 2022 - 12:37:45.838 [JettyServerThreadPool-13] INFO  com.revature.main.Main - http://localhost:7777/users/41/reimbursements
+28 03 2022 - 12:37:46.352 [JettyServerThreadPool-13] INFO  com.revature.main.Main - GET request has a response status 200
+28 03 2022 - 12:38:38.826 [JettyServerThreadPool-12] INFO  com.revature.main.Main - OPTIONS request received for /users/41/reimbursements
+28 03 2022 - 12:38:38.826 [JettyServerThreadPool-12] INFO  com.revature.main.Main - http://localhost:7777/users/41/reimbursements
+28 03 2022 - 12:38:38.826 [JettyServerThreadPool-12] INFO  com.revature.main.Main - OPTIONS request has a response status 200
+28 03 2022 - 12:38:38.854 [JettyServerThreadPool-15] INFO  com.revature.main.Main - POST request received for /users/41/reimbursements
+28 03 2022 - 12:38:38.854 [JettyServerThreadPool-15] INFO  com.revature.main.Main - http://localhost:7777/users/41/reimbursements
+28 03 2022 - 12:38:39.690 [JettyServerThreadPool-15] INFO  com.revature.main.Main - POST request has a response status 200
+28 03 2022 - 12:38:39.780 [JettyServerThreadPool-16] INFO  com.revature.main.Main - GET request received for /users/41/reimbursements
+28 03 2022 - 12:38:39.781 [JettyServerThreadPool-16] INFO  com.revature.main.Main - http://localhost:7777/users/41/reimbursements
+28 03 2022 - 12:38:40.299 [JettyServerThreadPool-16] INFO  com.revature.main.Main - GET request has a response status 200
+28 03 2022 - 12:39:04.535 [JettyServerThreadPool-15] INFO  com.revature.main.Main - OPTIONS request received for /users/41/reimbursements
+28 03 2022 - 12:39:04.535 [JettyServerThreadPool-15] INFO  com.revature.main.Main - http://localhost:7777/users/41/reimbursements
+28 03 2022 - 12:39:04.535 [JettyServerThreadPool-15] INFO  com.revature.main.Main - OPTIONS request has a response status 200
+28 03 2022 - 12:39:04.561 [JettyServerThreadPool-15] INFO  com.revature.main.Main - POST request received for /users/41/reimbursements
+28 03 2022 - 12:39:04.561 [JettyServerThreadPool-15] INFO  com.revature.main.Main - http://localhost:7777/users/41/reimbursements
+28 03 2022 - 12:39:05.362 [JettyServerThreadPool-15] INFO  com.revature.main.Main - POST request has a response status 200
+28 03 2022 - 12:39:05.466 [JettyServerThreadPool-16] INFO  com.revature.main.Main - GET request received for /users/41/reimbursements
+28 03 2022 - 12:39:05.466 [JettyServerThreadPool-16] INFO  com.revature.main.Main - http://localhost:7777/users/41/reimbursements
+28 03 2022 - 12:39:05.986 [JettyServerThreadPool-16] INFO  com.revature.main.Main - GET request has a response status 200
+28 03 2022 - 12:39:25.845 [JettyServerThreadPool-15] INFO  com.revature.main.Main - OPTIONS request received for /users/41/reimbursements
+28 03 2022 - 12:39:25.845 [JettyServerThreadPool-15] INFO  com.revature.main.Main - http://localhost:7777/users/41/reimbursements
+28 03 2022 - 12:39:25.845 [JettyServerThreadPool-15] INFO  com.revature.main.Main - OPTIONS request has a response status 200
+28 03 2022 - 12:39:25.847 [JettyServerThreadPool-16] INFO  com.revature.main.Main - POST request received for /users/41/reimbursements
+28 03 2022 - 12:39:25.847 [JettyServerThreadPool-16] INFO  com.revature.main.Main - http://localhost:7777/users/41/reimbursements
+28 03 2022 - 12:39:26.642 [JettyServerThreadPool-16] INFO  com.revature.main.Main - POST request has a response status 200
+28 03 2022 - 12:39:26.733 [JettyServerThreadPool-15] INFO  com.revature.main.Main - GET request received for /users/41/reimbursements
+28 03 2022 - 12:39:26.733 [JettyServerThreadPool-15] INFO  com.revature.main.Main - http://localhost:7777/users/41/reimbursements
+28 03 2022 - 12:39:27.242 [JettyServerThreadPool-15] INFO  com.revature.main.Main - GET request has a response status 200
+28 03 2022 - 12:39:37.464 [JettyServerThreadPool-16] INFO  com.revature.main.Main - OPTIONS request received for /login
+28 03 2022 - 12:39:37.464 [JettyServerThreadPool-16] INFO  com.revature.main.Main - http://localhost:7777/login
+28 03 2022 - 12:39:37.465 [JettyServerThreadPool-16] INFO  com.revature.main.Main - OPTIONS request has a response status 200
+28 03 2022 - 12:39:37.466 [JettyServerThreadPool-15] INFO  com.revature.main.Main - POST request received for /login
+28 03 2022 - 12:39:37.466 [JettyServerThreadPool-15] INFO  com.revature.main.Main - http://localhost:7777/login
+28 03 2022 - 12:39:38.029 [JettyServerThreadPool-15] INFO  com.revature.main.Main - POST request has a response status 200
+28 03 2022 - 12:39:38.076 [JettyServerThreadPool-16] INFO  com.revature.main.Main - OPTIONS request received for /users/40/reimbursements
+28 03 2022 - 12:39:38.076 [JettyServerThreadPool-16] INFO  com.revature.main.Main - http://localhost:7777/users/40/reimbursements
+28 03 2022 - 12:39:38.076 [JettyServerThreadPool-16] INFO  com.revature.main.Main - OPTIONS request has a response status 200
+28 03 2022 - 12:39:38.078 [JettyServerThreadPool-15] INFO  com.revature.main.Main - GET request received for /users/40/reimbursements
+28 03 2022 - 12:39:38.079 [JettyServerThreadPool-15] INFO  com.revature.main.Main - http://localhost:7777/users/40/reimbursements
+28 03 2022 - 12:39:38.587 [JettyServerThreadPool-15] INFO  com.revature.main.Main - GET request has a response status 200
+28 03 2022 - 12:40:05.374 [JettyServerThreadPool-16] INFO  com.revature.main.Main - OPTIONS request received for /users/40/reimbursements
+28 03 2022 - 12:40:05.375 [JettyServerThreadPool-16] INFO  com.revature.main.Main - http://localhost:7777/users/40/reimbursements
+28 03 2022 - 12:40:05.375 [JettyServerThreadPool-16] INFO  com.revature.main.Main - OPTIONS request has a response status 200
+28 03 2022 - 12:40:05.376 [JettyServerThreadPool-15] INFO  com.revature.main.Main - POST request received for /users/40/reimbursements
+28 03 2022 - 12:40:05.377 [JettyServerThreadPool-15] INFO  com.revature.main.Main - http://localhost:7777/users/40/reimbursements
+28 03 2022 - 12:40:06.201 [JettyServerThreadPool-15] INFO  com.revature.main.Main - POST request has a response status 200
+28 03 2022 - 12:40:06.293 [JettyServerThreadPool-16] INFO  com.revature.main.Main - GET request received for /users/40/reimbursements
+28 03 2022 - 12:40:06.293 [JettyServerThreadPool-16] INFO  com.revature.main.Main - http://localhost:7777/users/40/reimbursements
+28 03 2022 - 12:40:06.786 [JettyServerThreadPool-16] INFO  com.revature.main.Main - GET request has a response status 200
+28 03 2022 - 12:40:31.994 [JettyServerThreadPool-15] INFO  com.revature.main.Main - OPTIONS request received for /users/40/reimbursements
+28 03 2022 - 12:40:31.994 [JettyServerThreadPool-15] INFO  com.revature.main.Main - http://localhost:7777/users/40/reimbursements
+28 03 2022 - 12:40:31.994 [JettyServerThreadPool-15] INFO  com.revature.main.Main - OPTIONS request has a response status 200
+28 03 2022 - 12:40:31.995 [JettyServerThreadPool-16] INFO  com.revature.main.Main - POST request received for /users/40/reimbursements
+28 03 2022 - 12:40:31.996 [JettyServerThreadPool-16] INFO  com.revature.main.Main - http://localhost:7777/users/40/reimbursements
+28 03 2022 - 12:40:32.824 [JettyServerThreadPool-16] INFO  com.revature.main.Main - POST request has a response status 200
+28 03 2022 - 12:40:32.913 [JettyServerThreadPool-15] INFO  com.revature.main.Main - GET request received for /users/40/reimbursements
+28 03 2022 - 12:40:32.914 [JettyServerThreadPool-15] INFO  com.revature.main.Main - http://localhost:7777/users/40/reimbursements
+28 03 2022 - 12:40:33.420 [JettyServerThreadPool-15] INFO  com.revature.main.Main - GET request has a response status 200
+28 03 2022 - 12:40:53.534 [JettyServerThreadPool-16] INFO  com.revature.main.Main - OPTIONS request received for /users/40/reimbursements
+28 03 2022 - 12:40:53.534 [JettyServerThreadPool-16] INFO  com.revature.main.Main - http://localhost:7777/users/40/reimbursements
+28 03 2022 - 12:40:53.534 [JettyServerThreadPool-16] INFO  com.revature.main.Main - OPTIONS request has a response status 200
+28 03 2022 - 12:40:53.536 [JettyServerThreadPool-15] INFO  com.revature.main.Main - POST request received for /users/40/reimbursements
+28 03 2022 - 12:40:53.536 [JettyServerThreadPool-15] INFO  com.revature.main.Main - http://localhost:7777/users/40/reimbursements
+28 03 2022 - 12:40:54.474 [JettyServerThreadPool-15] INFO  com.revature.main.Main - POST request has a response status 200
+28 03 2022 - 12:40:54.567 [JettyServerThreadPool-16] INFO  com.revature.main.Main - GET request received for /users/40/reimbursements
+28 03 2022 - 12:40:54.567 [JettyServerThreadPool-16] INFO  com.revature.main.Main - http://localhost:7777/users/40/reimbursements
+28 03 2022 - 12:40:55.075 [JettyServerThreadPool-16] INFO  com.revature.main.Main - GET request has a response status 200
+28 03 2022 - 12:41:08.924 [JettyServerThreadPool-15] INFO  com.revature.main.Main - OPTIONS request received for /users/40/reimbursements
+28 03 2022 - 12:41:08.924 [JettyServerThreadPool-15] INFO  com.revature.main.Main - http://localhost:7777/users/40/reimbursements
+28 03 2022 - 12:41:08.924 [JettyServerThreadPool-15] INFO  com.revature.main.Main - OPTIONS request has a response status 200
+28 03 2022 - 12:41:08.926 [JettyServerThreadPool-16] INFO  com.revature.main.Main - POST request received for /users/40/reimbursements
+28 03 2022 - 12:41:08.927 [JettyServerThreadPool-16] INFO  com.revature.main.Main - http://localhost:7777/users/40/reimbursements
+28 03 2022 - 12:41:09.752 [JettyServerThreadPool-16] INFO  com.revature.main.Main - POST request has a response status 200
+28 03 2022 - 12:41:09.841 [JettyServerThreadPool-15] INFO  com.revature.main.Main - GET request received for /users/40/reimbursements
+28 03 2022 - 12:41:09.841 [JettyServerThreadPool-15] INFO  com.revature.main.Main - http://localhost:7777/users/40/reimbursements
+28 03 2022 - 12:41:10.348 [JettyServerThreadPool-15] INFO  com.revature.main.Main - GET request has a response status 200
+28 03 2022 - 12:46:26.741 [JettyServerThreadPool-14] INFO  com.revature.main.Main - OPTIONS request received for /login
+28 03 2022 - 12:46:26.742 [JettyServerThreadPool-14] INFO  com.revature.main.Main - http://localhost:7777/login
+28 03 2022 - 12:46:26.742 [JettyServerThreadPool-14] INFO  com.revature.main.Main - OPTIONS request has a response status 200
+28 03 2022 - 12:46:26.744 [JettyServerThreadPool-18] INFO  com.revature.main.Main - POST request received for /login
+28 03 2022 - 12:46:26.744 [JettyServerThreadPool-18] INFO  com.revature.main.Main - http://localhost:7777/login
+28 03 2022 - 12:46:27.334 [JettyServerThreadPool-18] INFO  com.revature.main.Main - POST request has a response status 200
+28 03 2022 - 12:46:27.393 [JettyServerThreadPool-12] INFO  com.revature.main.Main - OPTIONS request received for /reimbursements
+28 03 2022 - 12:46:27.393 [JettyServerThreadPool-12] INFO  com.revature.main.Main - http://localhost:7777/reimbursements
+28 03 2022 - 12:46:27.393 [JettyServerThreadPool-12] INFO  com.revature.main.Main - OPTIONS request has a response status 200
+28 03 2022 - 12:46:27.395 [JettyServerThreadPool-18] INFO  com.revature.main.Main - GET request received for /reimbursements
+28 03 2022 - 12:46:27.395 [JettyServerThreadPool-18] INFO  com.revature.main.Main - http://localhost:7777/reimbursements
+28 03 2022 - 12:46:27.900 [JettyServerThreadPool-18] INFO  com.revature.main.Main - GET request has a response status 200
+28 03 2022 - 12:46:52.229 [JettyServerThreadPool-12] INFO  com.revature.main.Main - OPTIONS request received for /reimbursements/37
+28 03 2022 - 12:46:52.229 [JettyServerThreadPool-12] INFO  com.revature.main.Main - http://localhost:7777/reimbursements/37?authorizedStatusId=2
+28 03 2022 - 12:46:52.229 [JettyServerThreadPool-12] INFO  com.revature.main.Main - OPTIONS request has a response status 200
+28 03 2022 - 12:46:52.231 [JettyServerThreadPool-18] INFO  com.revature.main.Main - PATCH request received for /reimbursements/37
+28 03 2022 - 12:46:52.231 [JettyServerThreadPool-18] INFO  com.revature.main.Main - http://localhost:7777/reimbursements/37?authorizedStatusId=2
+28 03 2022 - 12:46:53.232 [JettyServerThreadPool-18] INFO  com.revature.main.Main - PATCH request has a response status 200
+28 03 2022 - 12:46:53.237 [JettyServerThreadPool-12] INFO  com.revature.main.Main - OPTIONS request received for /reimbursements
+28 03 2022 - 12:46:53.237 [JettyServerThreadPool-12] INFO  com.revature.main.Main - http://localhost:7777/reimbursements
+28 03 2022 - 12:46:53.237 [JettyServerThreadPool-12] INFO  com.revature.main.Main - OPTIONS request has a response status 200
+28 03 2022 - 12:46:53.239 [JettyServerThreadPool-18] INFO  com.revature.main.Main - GET request received for /reimbursements
+28 03 2022 - 12:46:53.239 [JettyServerThreadPool-18] INFO  com.revature.main.Main - http://localhost:7777/reimbursements
+28 03 2022 - 12:46:53.733 [JettyServerThreadPool-18] INFO  com.revature.main.Main - GET request has a response status 200
+28 03 2022 - 12:47:10.824 [JettyServerThreadPool-12] INFO  com.revature.main.Main - OPTIONS request received for /reimbursements/36
+28 03 2022 - 12:47:10.824 [JettyServerThreadPool-12] INFO  com.revature.main.Main - http://localhost:7777/reimbursements/36?authorizedStatusId=3
+28 03 2022 - 12:47:10.824 [JettyServerThreadPool-12] INFO  com.revature.main.Main - OPTIONS request has a response status 200
+28 03 2022 - 12:47:10.825 [JettyServerThreadPool-18] INFO  com.revature.main.Main - PATCH request received for /reimbursements/36
+28 03 2022 - 12:47:10.825 [JettyServerThreadPool-18] INFO  com.revature.main.Main - http://localhost:7777/reimbursements/36?authorizedStatusId=3
+28 03 2022 - 12:47:11.837 [JettyServerThreadPool-18] INFO  com.revature.main.Main - PATCH request has a response status 200
+28 03 2022 - 12:47:11.842 [JettyServerThreadPool-12] INFO  com.revature.main.Main - OPTIONS request received for /reimbursements
+28 03 2022 - 12:47:11.842 [JettyServerThreadPool-12] INFO  com.revature.main.Main - http://localhost:7777/reimbursements
+28 03 2022 - 12:47:11.842 [JettyServerThreadPool-12] INFO  com.revature.main.Main - OPTIONS request has a response status 200
+28 03 2022 - 12:47:11.843 [JettyServerThreadPool-18] INFO  com.revature.main.Main - GET request received for /reimbursements
+28 03 2022 - 12:47:11.843 [JettyServerThreadPool-18] INFO  com.revature.main.Main - http://localhost:7777/reimbursements
+28 03 2022 - 12:47:12.361 [JettyServerThreadPool-18] INFO  com.revature.main.Main - GET request has a response status 200
+28 03 2022 - 16:17:54.377 [JettyServerThreadPool-14] INFO  com.revature.main.Main - OPTIONS request received for /login
+28 03 2022 - 16:17:54.380 [JettyServerThreadPool-14] INFO  com.revature.main.Main - http://localhost:7777/login
+28 03 2022 - 16:17:54.380 [JettyServerThreadPool-14] INFO  com.revature.main.Main - OPTIONS request has a response status 200
+28 03 2022 - 16:17:54.382 [JettyServerThreadPool-17] INFO  com.revature.main.Main - POST request received for /login
+28 03 2022 - 16:17:54.382 [JettyServerThreadPool-17] INFO  com.revature.main.Main - http://localhost:7777/login
+28 03 2022 - 16:17:54.973 [JettyServerThreadPool-17] INFO  com.revature.main.Main - POST request has a response status 200
+28 03 2022 - 16:17:54.990 [JettyServerThreadPool-18] INFO  com.revature.main.Main - OPTIONS request received for /users/41/reimbursements
+28 03 2022 - 16:17:54.990 [JettyServerThreadPool-18] INFO  com.revature.main.Main - http://localhost:7777/users/41/reimbursements
+28 03 2022 - 16:17:54.990 [JettyServerThreadPool-18] INFO  com.revature.main.Main - OPTIONS request has a response status 200
+28 03 2022 - 16:17:54.992 [JettyServerThreadPool-17] INFO  com.revature.main.Main - GET request received for /users/41/reimbursements
+28 03 2022 - 16:17:54.992 [JettyServerThreadPool-17] INFO  com.revature.main.Main - http://localhost:7777/users/41/reimbursements
+28 03 2022 - 16:17:55.500 [JettyServerThreadPool-17] INFO  com.revature.main.Main - GET request has a response status 200
+29 03 2022 - 14:18:08.208 [main] INFO  io.javalin.Javalin - 
+       __                      __ _            __ __
+      / /____ _ _   __ ____ _ / /(_)____      / // /
+ __  / // __ `/| | / // __ `// // // __ \    / // /_
+/ /_/ // /_/ / | |/ // /_/ // // // / / /   /__  __/
+\____/ \__,_/  |___/ \__,_//_//_//_/ /_/      /_/
+
+          https://javalin.io/documentation
+
+29 03 2022 - 14:18:08.223 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @484ms to org.eclipse.jetty.util.log.Slf4jLog
+29 03 2022 - 14:18:08.225 [main] INFO  io.javalin.Javalin - Starting Javalin ...
+29 03 2022 - 14:18:08.255 [main] INFO  io.javalin.Javalin - You are running Javalin 4.3.0 (released January 13, 2022).
+29 03 2022 - 14:18:08.577 [main] INFO  io.javalin.Javalin - Listening on http://localhost:7777/
+29 03 2022 - 14:18:08.577 [main] INFO  io.javalin.Javalin - Javalin started in 353ms \o/
+29 03 2022 - 14:18:59.873 [JettyServerThreadPool-19] INFO  com.revature.main.Main - OPTIONS request received for /login
+29 03 2022 - 14:18:59.874 [JettyServerThreadPool-19] INFO  com.revature.main.Main - http://localhost:7777/login
+29 03 2022 - 14:18:59.875 [JettyServerThreadPool-19] INFO  com.revature.main.Main - OPTIONS request has a response status 200
+29 03 2022 - 14:18:59.884 [JettyServerThreadPool-19] INFO  com.revature.main.Main - POST request received for /login
+29 03 2022 - 14:18:59.885 [JettyServerThreadPool-19] INFO  com.revature.main.Main - http://localhost:7777/login
+29 03 2022 - 14:19:01.192 [JettyServerThreadPool-19] INFO  com.revature.main.Main - POST request has a response status 200
+29 03 2022 - 14:19:01.223 [JettyServerThreadPool-16] INFO  com.revature.main.Main - OPTIONS request received for /users/41/reimbursements
+29 03 2022 - 14:19:01.224 [JettyServerThreadPool-16] INFO  com.revature.main.Main - http://localhost:7777/users/41/reimbursements
+29 03 2022 - 14:19:01.224 [JettyServerThreadPool-16] INFO  com.revature.main.Main - OPTIONS request has a response status 200
+29 03 2022 - 14:19:01.227 [JettyServerThreadPool-18] INFO  com.revature.main.Main - GET request received for /users/41/reimbursements
+29 03 2022 - 14:19:01.228 [JettyServerThreadPool-18] INFO  com.revature.main.Main - http://localhost:7777/users/41/reimbursements
+29 03 2022 - 14:19:01.761 [JettyServerThreadPool-18] INFO  com.revature.main.Main - GET request has a response status 200
+29 03 2022 - 14:21:02.369 [JettyServerThreadPool-19] INFO  com.revature.main.Main - OPTIONS request received for /users/41/reimbursements
+29 03 2022 - 14:21:02.370 [JettyServerThreadPool-19] INFO  com.revature.main.Main - http://localhost:7777/users/41/reimbursements
+29 03 2022 - 14:21:02.370 [JettyServerThreadPool-19] INFO  com.revature.main.Main - OPTIONS request has a response status 200
+29 03 2022 - 14:21:02.373 [JettyServerThreadPool-16] INFO  com.revature.main.Main - POST request received for /users/41/reimbursements
+29 03 2022 - 14:21:02.373 [JettyServerThreadPool-16] INFO  com.revature.main.Main - http://localhost:7777/users/41/reimbursements
+29 03 2022 - 14:21:04.040 [JettyServerThreadPool-16] INFO  com.revature.main.Main - POST request has a response status 200
+29 03 2022 - 14:21:04.144 [JettyServerThreadPool-13] INFO  com.revature.main.Main - GET request received for /users/41/reimbursements
+29 03 2022 - 14:21:04.144 [JettyServerThreadPool-13] INFO  com.revature.main.Main - http://localhost:7777/users/41/reimbursements
+29 03 2022 - 14:21:04.646 [JettyServerThreadPool-13] INFO  com.revature.main.Main - GET request has a response status 200
+29 03 2022 - 14:21:37.186 [JettyServerThreadPool-17] INFO  com.revature.main.Main - OPTIONS request received for /users/41/reimbursements/42
+29 03 2022 - 14:21:37.187 [JettyServerThreadPool-17] INFO  com.revature.main.Main - http://localhost:7777/users/41/reimbursements/42
+29 03 2022 - 14:21:37.187 [JettyServerThreadPool-17] INFO  com.revature.main.Main - OPTIONS request has a response status 200
+29 03 2022 - 14:21:37.189 [JettyServerThreadPool-16] INFO  com.revature.main.Main - PUT request received for /users/41/reimbursements/42
+29 03 2022 - 14:21:37.189 [JettyServerThreadPool-16] INFO  com.revature.main.Main - http://localhost:7777/users/41/reimbursements/42
+29 03 2022 - 14:21:37.723 [JettyServerThreadPool-16] INFO  com.revature.main.Main - PUT request has a response status 200
+29 03 2022 - 14:21:37.820 [JettyServerThreadPool-19] INFO  com.revature.main.Main - OPTIONS request received for /users/41/reimbursements
+29 03 2022 - 14:21:37.820 [JettyServerThreadPool-19] INFO  com.revature.main.Main - http://localhost:7777/users/41/reimbursements
+29 03 2022 - 14:21:37.820 [JettyServerThreadPool-19] INFO  com.revature.main.Main - OPTIONS request has a response status 200
+29 03 2022 - 14:21:37.823 [JettyServerThreadPool-16] INFO  com.revature.main.Main - GET request received for /users/41/reimbursements
+29 03 2022 - 14:21:37.823 [JettyServerThreadPool-16] INFO  com.revature.main.Main - http://localhost:7777/users/41/reimbursements
+29 03 2022 - 14:21:38.322 [JettyServerThreadPool-16] INFO  com.revature.main.Main - GET request has a response status 200
+29 03 2022 - 14:21:51.018 [JettyServerThreadPool-19] INFO  com.revature.main.Main - OPTIONS request received for /users/41/reimbursements/42
+29 03 2022 - 14:21:51.018 [JettyServerThreadPool-19] INFO  com.revature.main.Main - http://localhost:7777/users/41/reimbursements/42
+29 03 2022 - 14:21:51.018 [JettyServerThreadPool-19] INFO  com.revature.main.Main - OPTIONS request has a response status 200
+29 03 2022 - 14:21:51.020 [JettyServerThreadPool-16] INFO  com.revature.main.Main - DELETE request received for /users/41/reimbursements/42
+29 03 2022 - 14:21:51.020 [JettyServerThreadPool-16] INFO  com.revature.main.Main - http://localhost:7777/users/41/reimbursements/42
+29 03 2022 - 14:21:51.514 [JettyServerThreadPool-16] INFO  com.revature.main.Main - DELETE request has a response status 200
+29 03 2022 - 14:21:51.525 [JettyServerThreadPool-19] INFO  com.revature.main.Main - OPTIONS request received for /users/41/reimbursements
+29 03 2022 - 14:21:51.526 [JettyServerThreadPool-19] INFO  com.revature.main.Main - http://localhost:7777/users/41/reimbursements
+29 03 2022 - 14:21:51.526 [JettyServerThreadPool-19] INFO  com.revature.main.Main - OPTIONS request has a response status 200
+29 03 2022 - 14:21:51.528 [JettyServerThreadPool-16] INFO  com.revature.main.Main - GET request received for /users/41/reimbursements
+29 03 2022 - 14:21:51.528 [JettyServerThreadPool-16] INFO  com.revature.main.Main - http://localhost:7777/users/41/reimbursements
+29 03 2022 - 14:21:52.036 [JettyServerThreadPool-16] INFO  com.revature.main.Main - GET request has a response status 200
+29 03 2022 - 14:22:30.394 [JettyServerThreadPool-12] INFO  com.revature.main.Main - OPTIONS request received for /login
+29 03 2022 - 14:22:30.394 [JettyServerThreadPool-12] INFO  com.revature.main.Main - http://localhost:7777/login
+29 03 2022 - 14:22:30.394 [JettyServerThreadPool-12] INFO  com.revature.main.Main - OPTIONS request has a response status 200
+29 03 2022 - 14:22:30.396 [JettyServerThreadPool-19] INFO  com.revature.main.Main - POST request received for /login
+29 03 2022 - 14:22:30.396 [JettyServerThreadPool-19] INFO  com.revature.main.Main - http://localhost:7777/login
+29 03 2022 - 14:22:30.993 [JettyServerThreadPool-19] INFO  com.revature.main.Main - POST request has a response status 200
+29 03 2022 - 14:22:31.019 [JettyServerThreadPool-15] INFO  com.revature.main.Main - OPTIONS request received for /reimbursements
+29 03 2022 - 14:22:31.019 [JettyServerThreadPool-15] INFO  com.revature.main.Main - http://localhost:7777/reimbursements
+29 03 2022 - 14:22:31.019 [JettyServerThreadPool-15] INFO  com.revature.main.Main - OPTIONS request has a response status 200
+29 03 2022 - 14:22:31.023 [JettyServerThreadPool-19] INFO  com.revature.main.Main - GET request received for /reimbursements
+29 03 2022 - 14:22:31.023 [JettyServerThreadPool-19] INFO  com.revature.main.Main - http://localhost:7777/reimbursements
+29 03 2022 - 14:22:31.538 [JettyServerThreadPool-19] INFO  com.revature.main.Main - GET request has a response status 200
+29 03 2022 - 14:23:33.771 [JettyServerThreadPool-12] INFO  com.revature.main.Main - OPTIONS request received for /reimbursements/38
+29 03 2022 - 14:23:33.771 [JettyServerThreadPool-12] INFO  com.revature.main.Main - http://localhost:7777/reimbursements/38?authorizedStatusId=2
+29 03 2022 - 14:23:33.771 [JettyServerThreadPool-12] INFO  com.revature.main.Main - OPTIONS request has a response status 200
+29 03 2022 - 14:23:33.773 [JettyServerThreadPool-18] INFO  com.revature.main.Main - PATCH request received for /reimbursements/38
+29 03 2022 - 14:23:33.773 [JettyServerThreadPool-18] INFO  com.revature.main.Main - http://localhost:7777/reimbursements/38?authorizedStatusId=2
+29 03 2022 - 14:23:34.783 [JettyServerThreadPool-18] INFO  com.revature.main.Main - PATCH request has a response status 200
+29 03 2022 - 14:23:34.788 [JettyServerThreadPool-19] INFO  com.revature.main.Main - OPTIONS request received for /reimbursements
+29 03 2022 - 14:23:34.788 [JettyServerThreadPool-19] INFO  com.revature.main.Main - http://localhost:7777/reimbursements
+29 03 2022 - 14:23:34.788 [JettyServerThreadPool-19] INFO  com.revature.main.Main - OPTIONS request has a response status 200
+29 03 2022 - 14:23:34.790 [JettyServerThreadPool-18] INFO  com.revature.main.Main - GET request received for /reimbursements
+29 03 2022 - 14:23:34.790 [JettyServerThreadPool-18] INFO  com.revature.main.Main - http://localhost:7777/reimbursements
+29 03 2022 - 14:23:35.305 [JettyServerThreadPool-18] INFO  com.revature.main.Main - GET request has a response status 200
+29 03 2022 - 14:24:03.026 [JettyServerThreadPool-19] INFO  com.revature.main.Main - OPTIONS request received for /reimbursements/41
+29 03 2022 - 14:24:03.026 [JettyServerThreadPool-19] INFO  com.revature.main.Main - http://localhost:7777/reimbursements/41?authorizedStatusId=3
+29 03 2022 - 14:24:03.026 [JettyServerThreadPool-19] INFO  com.revature.main.Main - OPTIONS request has a response status 200
+29 03 2022 - 14:24:03.028 [JettyServerThreadPool-18] INFO  com.revature.main.Main - PATCH request received for /reimbursements/41
+29 03 2022 - 14:24:03.028 [JettyServerThreadPool-18] INFO  com.revature.main.Main - http://localhost:7777/reimbursements/41?authorizedStatusId=3
+29 03 2022 - 14:24:04.028 [JettyServerThreadPool-18] INFO  com.revature.main.Main - PATCH request has a response status 200
+29 03 2022 - 14:24:04.032 [JettyServerThreadPool-19] INFO  com.revature.main.Main - OPTIONS request received for /reimbursements
+29 03 2022 - 14:24:04.032 [JettyServerThreadPool-19] INFO  com.revature.main.Main - http://localhost:7777/reimbursements
+29 03 2022 - 14:24:04.032 [JettyServerThreadPool-19] INFO  com.revature.main.Main - OPTIONS request has a response status 200
+29 03 2022 - 14:24:04.034 [JettyServerThreadPool-18] INFO  com.revature.main.Main - GET request received for /reimbursements
+29 03 2022 - 14:24:04.034 [JettyServerThreadPool-18] INFO  com.revature.main.Main - http://localhost:7777/reimbursements
+29 03 2022 - 14:24:04.554 [JettyServerThreadPool-18] INFO  com.revature.main.Main - GET request has a response status 200
