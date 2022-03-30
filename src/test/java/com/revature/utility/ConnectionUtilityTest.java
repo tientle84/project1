@@ -6,8 +6,8 @@ import java.sql.SQLException;
 
 public class ConnectionUtilityTest {
 
-    @Test
-    public void testGetConnection() throws SQLException {
-        ConnectionUtility.getConnection();
-    }
+//    @Test
+//    public void testGetConnection() throws SQLException {
+//        ConnectionUtility.getConnection();
+//    }
 }
