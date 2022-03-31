@@ -7225,3 +7225,84 @@ com.revature.exception.FailedLoginException: Invalid username or password.
 30 03 2022 - 17:33:11.652 [JettyServerThreadPool-17] INFO  com.revature.main.Main - GET request received for /reimbursements
 30 03 2022 - 17:33:11.652 [JettyServerThreadPool-17] INFO  com.revature.main.Main - http://localhost:7777/reimbursements
 30 03 2022 - 17:33:12.146 [JettyServerThreadPool-17] INFO  com.revature.main.Main - GET request has a response status 200
+31 03 2022 - 16:17:24.849 [main] INFO  io.javalin.Javalin - 
+       __                      __ _            __ __
+      / /____ _ _   __ ____ _ / /(_)____      / // /
+ __  / // __ `/| | / // __ `// // // __ \    / // /_
+/ /_/ // /_/ / | |/ // /_/ // // // / / /   /__  __/
+\____/ \__,_/  |___/ \__,_//_//_//_/ /_/      /_/
+
+          https://javalin.io/documentation
+
+31 03 2022 - 16:17:24.876 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @526ms to org.eclipse.jetty.util.log.Slf4jLog
+31 03 2022 - 16:17:24.877 [main] INFO  io.javalin.Javalin - Starting Javalin ...
+31 03 2022 - 16:17:24.902 [main] INFO  io.javalin.Javalin - You are running Javalin 4.3.0 (released January 13, 2022).
+31 03 2022 - 16:17:25.222 [main] INFO  io.javalin.Javalin - Listening on http://localhost:7777/
+31 03 2022 - 16:17:25.222 [main] INFO  io.javalin.Javalin - Javalin started in 346ms \o/
+31 03 2022 - 16:18:09.670 [JettyServerThreadPool-16] INFO  com.revature.main.Main - POST request received for /register
+31 03 2022 - 16:18:09.670 [JettyServerThreadPool-16] INFO  com.revature.main.Main - http://localhost:7777/register
+31 03 2022 - 16:18:09.876 [JettyServerThreadPool-16] WARN  io.javalin.Javalin - Uncaught exception
+com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException: Unrecognized field "userEmail" (class com.revature.model.User), not marked as ignorable (7 known properties: "lastName", "userId", "password", "email", "roleId", "username", "firstName"])
+ at [Source: (String)"{
+    "firstName": "test",
+    "lastName": "testy",
+    "username": "test",
+    "password": "123456",
+    "userEmail": "test@gmail.com"
+}"; line: 6, column: 19] (through reference chain: com.revature.model.User["userEmail"])
+	at com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException.from(UnrecognizedPropertyException.java:61)
+	at com.fasterxml.jackson.databind.DeserializationContext.handleUnknownProperty(DeserializationContext.java:1127)
+	at com.fasterxml.jackson.databind.deser.std.StdDeserializer.handleUnknownProperty(StdDeserializer.java:1989)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.handleUnknownProperty(BeanDeserializerBase.java:1700)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializerBase.handleUnknownVanilla(BeanDeserializerBase.java:1678)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.vanillaDeserialize(BeanDeserializer.java:319)
+	at com.fasterxml.jackson.databind.deser.BeanDeserializer.deserialize(BeanDeserializer.java:176)
+	at com.fasterxml.jackson.databind.deser.DefaultDeserializationContext.readRootValue(DefaultDeserializationContext.java:322)
+	at com.fasterxml.jackson.databind.ObjectMapper._readMapAndClose(ObjectMapper.java:4674)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3629)
+	at com.fasterxml.jackson.databind.ObjectMapper.readValue(ObjectMapper.java:3597)
+	at io.javalin.plugin.json.JavalinJackson.fromJsonString(JavalinJackson.kt:37)
+	at io.javalin.http.Context.bodyAsClass(Context.kt:114)
+	at com.revature.controller.AuthController.lambda$new$1(AuthController.java:35)
+	at io.javalin.core.security.SecurityUtil.noopAccessManager(SecurityUtil.kt:20)
+	at io.javalin.http.JavalinServlet.addHandler$lambda-5(JavalinServlet.kt:115)
+	at io.javalin.http.JavalinServlet$service$tryBeforeAndEndpointHandlers$1.invoke(JavalinServlet.kt:44)
+	at io.javalin.http.JavalinServlet$service$tryBeforeAndEndpointHandlers$1.invoke(JavalinServlet.kt:39)
+	at io.javalin.http.JavalinServlet.service$tryWithExceptionMapper(JavalinServlet.kt:131)
+	at io.javalin.http.JavalinServlet.service$tryBeforeAndEndpointHandlers(JavalinServlet.kt:39)
+	at io.javalin.http.JavalinServlet.service(JavalinServlet.kt:87)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790)
+	at io.javalin.jetty.JavalinJettyServlet.service(JavalinJettyServlet.kt:58)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:790)
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:799)
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:550)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:233)
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1624)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:233)
+	at io.javalin.jetty.JettyServer$start$wsAndHttpHandler$1.doHandle(JettyServer.kt:52)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:188)
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:501)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1594)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:186)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1349)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141)
+	at org.eclipse.jetty.server.handler.StatisticsHandler.handle(StatisticsHandler.java:179)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127)
+	at org.eclipse.jetty.server.Server.handle(Server.java:516)
+	at org.eclipse.jetty.server.HttpChannel.lambda$handle$1(HttpChannel.java:400)
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:645)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:392)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:277)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:311)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:105)
+	at org.eclipse.jetty.io.ChannelEndPoint$1.run(ChannelEndPoint.java:104)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:883)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1034)
+	at java.lang.Thread.run(Thread.java:750)
+31 03 2022 - 16:18:09.878 [JettyServerThreadPool-16] INFO  com.revature.main.Main - POST request has a response status 500
+31 03 2022 - 16:27:57.038 [JettyServerThreadPool-12] INFO  com.revature.main.Main - POST request received for /register
+31 03 2022 - 16:27:57.039 [JettyServerThreadPool-12] INFO  com.revature.main.Main - http://localhost:7777/register
+31 03 2022 - 16:27:58.250 [JettyServerThreadPool-12] INFO  com.revature.main.Main - POST request has a response status 200
+31 03 2022 - 16:28:29.256 [JettyServerThreadPool-15] INFO  com.revature.main.Main - POST request received for /login
+31 03 2022 - 16:28:29.256 [JettyServerThreadPool-15] INFO  com.revature.main.Main - http://localhost:7777/login
+31 03 2022 - 16:28:29.843 [JettyServerThreadPool-15] INFO  com.revature.main.Main - POST request has a response status 200

@@ -14,11 +14,11 @@ import java.security.spec.KeySpec;
 import java.sql.*;
 
 public class UserDao {
-    private byte[] salt = "2ZlQT09FZHRkhVVWVVRakVVWVVR2ZlQT09FZHRFZHRkhVVWVVRZi9V".getBytes();
     public UserDao() {}
 
     public User getUserByUsernameAndPassword(String username, String password) throws SQLException {
         try(Connection con = ConnectionUtility.getConnection()) {
+            byte[] salt = password.getBytes(StandardCharsets.UTF_8);
             KeySpec keySpec = new PBEKeySpec(password.toCharArray(), salt, 65536, 128);
             SecretKeyFactory secretKeyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
             byte[] hash = secretKeyFactory.generateSecret(keySpec).getEncoded();
@@ -54,6 +54,7 @@ public class UserDao {
 
     public User createUser(User user) throws SQLException {
         try(Connection con = ConnectionUtility.getConnection()) {
+            byte[] salt = user.getPassword().getBytes(StandardCharsets.UTF_8);
             KeySpec keySpec = new PBEKeySpec(user.getPassword().toCharArray(), salt, 65536, 128);
             SecretKeyFactory secretKeyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
             byte[] hash = secretKeyFactory.generateSecret(keySpec).getEncoded();
