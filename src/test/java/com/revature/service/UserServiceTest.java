@@ -15,7 +15,7 @@ import static org.mockito.Mockito.when;
 
 public class UserServiceTest {
     @Test
-    public void testLogin() throws SQLException, FailedLoginException {
+    void testLogin() throws SQLException, FailedLoginException {
         UserDao mockDao = mock(UserDao.class);
         User fakeUser = new User(1, "testuser", "", "Test", "Testy", "test@gmail.com", 2);
 
@@ -28,7 +28,7 @@ public class UserServiceTest {
     }
 
     @Test
-    public void testLoginFail() {
+    void testLoginFail() {
         UserDao mockDao = mock(UserDao.class);
         UserService userService = new UserService(mockDao);
 
@@ -38,7 +38,7 @@ public class UserServiceTest {
     }
 
     @Test
-    public void testRegister() throws SQLException, FailedRegisterException {
+    void testRegister() throws SQLException, FailedRegisterException {
         UserDao mockDao = mock(UserDao.class);
         User inputUser = new User(0, "testuser", "123456", "Test", "Testy", "test@gmail.com", 2);
         User fakeUser = new User(1, "testuser", "", "Test", "Testy", "test@gmail.com", 2);
@@ -52,7 +52,7 @@ public class UserServiceTest {
     }
 
     @Test
-    public void testRegisterFail() {
+    void testRegisterFail() {
         UserDao mockDao = mock(UserDao.class);
         User inputUser = new User(0, "testuser", "123456", "Test", "Testy", "test@gmail.com", 2);
         UserService userService = new UserService(mockDao);

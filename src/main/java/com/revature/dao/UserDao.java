@@ -8,7 +8,6 @@ import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
 import java.nio.charset.StandardCharsets;
 import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
 import java.sql.*;
@@ -35,7 +34,6 @@ public class UserDao {
             if(resultSet.next()) {
                 int id = resultSet.getInt("ers_users_id");
                 String un = resultSet.getString("ers_username");
-                //String pw = resultSet.getString("ers_password");
                 String fn = resultSet.getString("user_first_name");
                 String ln = resultSet.getString("user_last_name");
                 String em = resultSet.getString("user_email");
@@ -100,7 +98,6 @@ public class UserDao {
             if(resultSet.next()) {
                 int id = resultSet.getInt("ers_users_id");
                 String un = resultSet.getString("ers_username");
-                //String pw = resultSet.getString("ers_password");
                 String fn = resultSet.getString("user_first_name");
                 String ln = resultSet.getString("user_last_name");
                 String em = resultSet.getString("user_email");

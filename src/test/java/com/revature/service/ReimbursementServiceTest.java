@@ -4,7 +4,6 @@ import com.revature.dao.ReimbursementDao;
 import com.revature.dao.UserDao;
 import com.revature.dto.ReimbursementDTO;
 import com.revature.exception.ReimbursementNotFoundException;
-import io.javalin.http.UploadedFile;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -19,7 +18,7 @@ import static org.mockito.Mockito.when;
 
 public class ReimbursementServiceTest {
     @Test
-    public void testGetAllReimbursements() throws SQLException {
+    void testGetAllReimbursements() throws SQLException {
         UserDao mockedUser = mock(UserDao.class);
         ReimbursementDao mockedReimb = mock(ReimbursementDao.class);
         ReimbursementService reimbursementService = new ReimbursementService(mockedUser, mockedReimb);
@@ -38,7 +37,7 @@ public class ReimbursementServiceTest {
     }
 
     @Test
-    public void testGetAllReimbursementsByUserId() throws SQLException {
+    void testGetAllReimbursementsByUserId() throws SQLException {
         UserDao mockedUser = mock(UserDao.class);
         ReimbursementDao mockedReimb = mock(ReimbursementDao.class);
         ReimbursementService reimbursementService = new ReimbursementService(mockedUser, mockedReimb);
@@ -57,7 +56,7 @@ public class ReimbursementServiceTest {
     }
 
     @Test
-    public void testCreateReimbursement() throws SQLException, IOException {
+    void testCreateReimbursement() throws SQLException, IOException {
         UserDao mockedUser = mock(UserDao.class);
         ReimbursementDao mockedReimb = mock(ReimbursementDao.class);
         ReimbursementService reimbursementService = new ReimbursementService(mockedUser, mockedReimb);
@@ -72,7 +71,7 @@ public class ReimbursementServiceTest {
     }
 
     @Test
-    public void testUpdateReimbursement() throws SQLException, IOException {
+    void testUpdateReimbursement() throws SQLException, IOException {
         UserDao mockedUser = mock(UserDao.class);
         ReimbursementDao mockedReimb = mock(ReimbursementDao.class);
         ReimbursementService reimbursementService = new ReimbursementService(mockedUser, mockedReimb);
@@ -87,7 +86,7 @@ public class ReimbursementServiceTest {
     }
 
     @Test
-    public void testDeleteReimbursement() throws SQLException {
+    void testDeleteReimbursement() throws SQLException {
         UserDao mockedUser = mock(UserDao.class);
         ReimbursementDao mockedReimb = mock(ReimbursementDao.class);
         ReimbursementService reimbursementService = new ReimbursementService(mockedUser, mockedReimb);
@@ -100,7 +99,7 @@ public class ReimbursementServiceTest {
     }
 
     @Test
-    public void testAuthorizeReimbursement() throws SQLException, ReimbursementNotFoundException {
+    void testAuthorizeReimbursement() throws SQLException, ReimbursementNotFoundException {
         UserDao mockedUser = mock(UserDao.class);
         ReimbursementDao mockedReimb = mock(ReimbursementDao.class);
         ReimbursementService reimbursementService = new ReimbursementService(mockedUser, mockedReimb);
@@ -115,7 +114,7 @@ public class ReimbursementServiceTest {
     }
 
     @Test
-    public  void testAuthorizeReimbursementFail() {
+    void testAuthorizeReimbursementFail() {
         UserDao mockedUser = mock(UserDao.class);
         ReimbursementDao mockedReimb = mock(ReimbursementDao.class);
         ReimbursementService reimbursementService = new ReimbursementService(mockedUser, mockedReimb);

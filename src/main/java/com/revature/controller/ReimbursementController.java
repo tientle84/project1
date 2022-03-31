@@ -16,6 +16,8 @@ import java.util.List;
 public class ReimbursementController implements Controller {
     private JWTService jwtService;
     private ReimbursementService reimbursementService;
+    private String authorization = "Authorization";
+    private String userRole = "user_role";
     
     public ReimbursementController() {
         this.jwtService = JWTService.getInstance();
@@ -24,11 +26,11 @@ public class ReimbursementController implements Controller {
 
     // ============================== for employees ============================== //
     private final Handler getReimbursementsByUserId = (ctx) -> {
-        if(ctx.header("Authorization") != null) {
-            String jwt = ctx.header("Authorization").split(" ")[1];
+        if(ctx.header(authorization) != null) {
+            String jwt = ctx.header(authorization).split(" ")[1];
             Jws<Claims> token = this.jwtService.parseJwt(jwt);
 
-            if(!token.getBody().get("user_role").equals(2)) {
+            if(!token.getBody().get(userRole).equals(2)) {
                 throw new UnauthorizedResponse("This endpoint is used by employees only.");
             }
 
@@ -46,11 +48,11 @@ public class ReimbursementController implements Controller {
     };
 
     private final Handler createReimbursement = (ctx) -> {
-        if(ctx.header("Authorization") != null) {
-            String jwt = ctx.header("Authorization").split(" ")[1];
+        if(ctx.header(authorization) != null) {
+            String jwt = ctx.header(authorization).split(" ")[1];
             Jws<Claims> token = this.jwtService.parseJwt(jwt);
 
-            if(!token.getBody().get("user_role").equals(2)) {
+            if(!token.getBody().get(userRole).equals(2)) {
                 throw new UnauthorizedResponse("This endpoint is used by employees only.");
             }
 
@@ -69,11 +71,11 @@ public class ReimbursementController implements Controller {
     };
 
     private final Handler updateReimbursement = (ctx) -> {
-        if(ctx.header("Authorization") != null) {
-            String jwt = ctx.header("Authorization").split(" ")[1];
+        if(ctx.header(authorization) != null) {
+            String jwt = ctx.header(authorization).split(" ")[1];
             Jws<Claims> token = this.jwtService.parseJwt(jwt);
 
-            if(!token.getBody().get("user_role").equals(2)) {
+            if(!token.getBody().get(userRole).equals(2)) {
                 throw new UnauthorizedResponse("This endpoint is used by employees only.");
             }
 
@@ -93,11 +95,11 @@ public class ReimbursementController implements Controller {
     };
 
     private final Handler deleteReimbursement = (ctx) -> {
-        if(ctx.header("Authorization") != null) {
-            String jwt = ctx.header("Authorization").split(" ")[1];
+        if(ctx.header(authorization) != null) {
+            String jwt = ctx.header(authorization).split(" ")[1];
             Jws<Claims> token = this.jwtService.parseJwt(jwt);
 
-            if(!token.getBody().get("user_role").equals(2)) {
+            if(!token.getBody().get(userRole).equals(2)) {
                 throw new UnauthorizedResponse("This endpoint is used by employees only.");
             }
 
@@ -113,11 +115,11 @@ public class ReimbursementController implements Controller {
 
     // ============================== for managers ============================== //
     private final Handler getAllReimbursements = (ctx) -> {
-        if(ctx.header("Authorization") != null) {
-            String jwt = ctx.header("Authorization").split(" ")[1];
+        if(ctx.header(authorization) != null) {
+            String jwt = ctx.header(authorization).split(" ")[1];
             Jws<Claims> token = this.jwtService.parseJwt(jwt);
 
-            if(!token.getBody().get("user_role").equals(1)) {
+            if(!token.getBody().get(userRole).equals(1)) {
                 throw new UnauthorizedResponse("This endpoint is used by managers only.");
             }
 
@@ -129,11 +131,11 @@ public class ReimbursementController implements Controller {
     };
 
     private final Handler authorizeReimbursement = (ctx) -> {
-        if (ctx.header("Authorization") != null) {
-            String jwt = ctx.header("Authorization").split(" ")[1];
+        if (ctx.header(authorization) != null) {
+            String jwt = ctx.header(authorization).split(" ")[1];
             Jws<Claims> token = this.jwtService.parseJwt(jwt);
 
-            if (!token.getBody().get("user_role").equals(1)) {
+            if (!token.getBody().get(userRole).equals(1)) {
                 throw new UnauthorizedResponse("This endpoint is used by managers only.");
             }
 

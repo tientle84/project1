@@ -4,9 +4,6 @@ import com.revature.dao.ReimbursementDao;
 import com.revature.dao.UserDao;
 import com.revature.dto.ReimbursementDTO;
 import com.revature.exception.ReimbursementNotFoundException;
-import com.revature.exception.UserNotFoundException;
-import com.revature.model.Reimbursement;
-import com.revature.model.User;
 import com.revature.utility.InfoValidator;
 import io.javalin.http.UploadedFile;
 
@@ -27,30 +24,6 @@ public class ReimbursementService {
         this.userDao = userMockDao;
         this.reimbursementDao = reimbursementMockDao;
     }
-
-    // check to see whether user exists or not
-//    public User ifUserExist(int userId) throws SQLException, UserNotFoundException {
-//        User user = userDao.getUserById(userId);
-//
-//        // check if user is null, then throw exception
-//        if(user == null) {
-//            throw new UserNotFoundException("Could not find the user with id " + userId + ".");
-//        } else {
-//            return user;
-//        }
-//    }
-
-    // check to see whether reimbursement exists or not (for employees usage)
-//    public ReimbursementDTO ifReimbursementExist(int userId, int reimbursementId) throws SQLException, ReimbursementNotFoundException {
-//        ReimbursementDTO reimbursementDTO = reimbursementDao.getReimbursementByUserIdAndReimbId(userId, reimbursementId);
-//
-//        // check if reimbursement is null, then throw exception
-//        if(reimbursementDTO == null) {
-//            throw new ReimbursementNotFoundException("Could not find the reimbursement " + reimbursementId + " of the user " + userId + ".");
-//        } else {
-//            return reimbursementDTO;
-//        }
-//    }
 
     // check to see whether reimbursement exists or not (for managers usage)
     public ReimbursementDTO ifReimbursementExist(int reimbursementId) throws SQLException, ReimbursementNotFoundException {

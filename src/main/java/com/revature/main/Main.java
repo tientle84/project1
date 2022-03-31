@@ -9,7 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class Main {
-    public static Logger logger = LoggerFactory.getLogger(Main.class);
+    private static Logger logger = LoggerFactory.getLogger(Main.class);
 
     public static void main(String[] args) {
         Javalin app = Javalin.create(config -> {
@@ -19,18 +19,17 @@ public class Main {
 
         // info logging before every single request
         app.before(ctx -> {
-            logger.info(ctx.method() + " request received for " + ctx.path());
+            logger.info("{0} request received for {1}", ctx.method(), ctx.path());
             logger.info(ctx.fullUrl());
         });
 
         // info logging after every single request
         app.after(ctx -> {
-            logger.info(ctx.method() + " request has a response status " + ctx.status());
+            logger.info("{0} request has a response status {1}", ctx.method(), ctx.status());
         });
 
         mapControllers(app, new AuthController(), new ReimbursementController(), new ExceptionController());
         app.start(getHerokuAssignedPort());
-        //app.start(7777);
     }
 
     // get heroku port when deploying to heroku

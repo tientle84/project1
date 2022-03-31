@@ -26,9 +26,6 @@ public class AuthController implements Controller{
         ctx.header("Access-Control-Expose-Headers", "*");
         ctx.header("Token", jwt);
         ctx.json(user);
-
-//        Cookie cookie = new Cookie("jwt", jwt, "/", 86400, false , 0 ,true, "", "", SameSite.LAX);
-//        ctx.cookie(cookie);
     };
 
     private  Handler register = (ctx) -> {
