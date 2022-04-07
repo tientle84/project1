@@ -8,6 +8,8 @@ import io.javalin.Javalin;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.text.MessageFormat;
+
 public class Main {
     private static Logger logger = LoggerFactory.getLogger(Main.class);
 
@@ -19,13 +21,13 @@ public class Main {
 
         // info logging before every single request
         app.before(ctx -> {
-            logger.info("{0} request received for {1}", ctx.method(), ctx.path());
+            logger.info(MessageFormat.format("{0} request received for {1}", ctx.method(), ctx.path()));
             logger.info(ctx.fullUrl());
         });
 
         // info logging after every single request
         app.after(ctx -> {
-            logger.info("{0} request has a response status {1}", ctx.method(), ctx.status());
+            logger.info(MessageFormat.format("{0} request has a response status {1}", ctx.method(), ctx.status()));
         });
 
         mapControllers(app, new AuthController(), new ReimbursementController(), new ExceptionController());

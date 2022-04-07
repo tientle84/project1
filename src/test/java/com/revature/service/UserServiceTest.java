@@ -13,7 +13,7 @@ import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class UserServiceTest {
+class UserServiceTest {
     @Test
     void testLogin() throws SQLException, FailedLoginException {
         UserDao mockDao = mock(UserDao.class);

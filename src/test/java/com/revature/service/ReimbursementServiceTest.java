@@ -16,7 +16,7 @@ import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class ReimbursementServiceTest {
+class ReimbursementServiceTest {
     @Test
     void testGetAllReimbursements() throws SQLException {
         UserDao mockedUser = mock(UserDao.class);

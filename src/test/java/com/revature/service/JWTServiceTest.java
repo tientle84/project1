@@ -6,7 +6,7 @@ import io.jsonwebtoken.Jws;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class JWTServiceTest {
+class JWTServiceTest {
     @Test
     void testCreateJWT() {
         JWTService jwtService = new JWTService();
