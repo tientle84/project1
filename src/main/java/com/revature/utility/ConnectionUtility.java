@@ -14,7 +14,7 @@ public class ConnectionUtility {
         DriverManager.registerDriver(new Driver());
 
         // Specify credentials for the database
-        String url = System.getenv("db1_url");
+        String url = System.getenv("db_url");
         String username = System.getenv("db_username");
         String password = System.getenv("db_password");
 
