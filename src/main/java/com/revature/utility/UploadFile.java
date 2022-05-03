@@ -2,6 +2,8 @@ package com.revature.utility;
 
 // Imports the Google Cloud client library
 import com.google.auth.oauth2.GoogleCredentials;
+import com.google.auth.oauth2.ImpersonatedCredentials;
+import com.google.auth.oauth2.ServiceAccountCredentials;
 import com.google.cloud.storage.*;
 
 import com.google.common.collect.Lists;
@@ -12,6 +14,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.security.SecureRandom;
+import java.util.Arrays;
 import java.util.stream.IntStream;
 
 public class UploadFile {
@@ -45,8 +48,9 @@ public class UploadFile {
 
     private static Bucket getBucket(String bucketName) {
         try{
+            String credPath = "silent-bolt-343919-c45a384f77c0.json";
             GoogleCredentials credentials = GoogleCredentials
-                    .fromStream(new FileInputStream(System.getenv("GOOGLE_APPLICATION_CREDENTIALS")))
+                    .fromStream(new FileInputStream(credPath))
                     .createScoped(Lists.newArrayList("https://www.googleapis.com/auth/cloud-platform"));
 
             Storage storage = StorageOptions.newBuilder().setCredentials(credentials).build().getService();
