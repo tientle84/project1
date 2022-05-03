@@ -51,7 +51,7 @@ public class UploadFile {
             String credPath = "silent-bolt-343919-c45a384f77c0.json";
             GoogleCredentials credentials = GoogleCredentials
                     //.fromStream(new FileInputStream(credPath))
-                    .fromStream(new FileInputStream(System.getenv("GOOGLE_APPLICATION_CREDENTIALS")))
+                    .fromStream(UploadFile.class.getClassLoader().getResourceAsStream(credPath))
                     .createScoped(Lists.newArrayList("https://www.googleapis.com/auth/cloud-platform"));
 
             Storage storage = StorageOptions.newBuilder().setCredentials(credentials).build().getService();

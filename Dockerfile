@@ -1,6 +1,7 @@
 FROM gradle:7.4.2-jdk8 AS build
 COPY --chown=gradle:gradle . /home/gradle/src
 WORKDIR /home/gradle/src
+COPY silent-bolt-343919-c45a384f77c0.json ./src/main/resources/silent-bolt-343919-c45a384f77c0.json
 RUN gradle build --no-daemon
 
 FROM openjdk:8-jre-slim
