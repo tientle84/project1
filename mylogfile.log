@@ -9163,3 +9163,38 @@ java.lang.NullPointerException: null
 03 05 2022 - 02:07:37.695 [JettyServerThreadPool-13] INFO  com.revature.main.Main - GET request received for /users/46/reimbursements
 03 05 2022 - 02:07:37.695 [JettyServerThreadPool-13] INFO  com.revature.main.Main - http://localhost:7777/users/46/reimbursements
 03 05 2022 - 02:07:38.202 [JettyServerThreadPool-13] INFO  com.revature.main.Main - GET request has a response status 200
+03 05 2022 - 11:04:38.609 [main] INFO  io.javalin.Javalin - 
+       __                      __ _            __ __
+      / /____ _ _   __ ____ _ / /(_)____      / // /
+ __  / // __ `/| | / // __ `// // // __ \    / // /_
+/ /_/ // /_/ / | |/ // /_/ // // // / / /   /__  __/
+\____/ \__,_/  |___/ \__,_//_//_//_/ /_/      /_/
+
+          https://javalin.io/documentation
+
+03 05 2022 - 11:04:38.629 [main] INFO  org.eclipse.jetty.util.log - Logging initialized @523ms to org.eclipse.jetty.util.log.Slf4jLog
+03 05 2022 - 11:04:38.631 [main] INFO  io.javalin.Javalin - Starting Javalin ...
+03 05 2022 - 11:04:38.662 [main] INFO  io.javalin.Javalin - You are running Javalin 4.3.0 (released January 13, 2022. Your Javalin version is 109 days old. Consider checking for a newer version.).
+03 05 2022 - 11:04:39.053 [main] INFO  io.javalin.Javalin - Listening on http://localhost:7777/
+03 05 2022 - 11:04:39.054 [main] INFO  io.javalin.Javalin - Javalin started in 424ms \o/
+03 05 2022 - 11:04:53.944 [JettyServerThreadPool-19] INFO  com.revature.main.Main - OPTIONS request received for /login
+03 05 2022 - 11:04:53.944 [JettyServerThreadPool-19] INFO  com.revature.main.Main - http://localhost:7777/login
+03 05 2022 - 11:04:53.945 [JettyServerThreadPool-19] INFO  com.revature.main.Main - OPTIONS request has a response status 200
+03 05 2022 - 11:04:53.954 [JettyServerThreadPool-19] INFO  com.revature.main.Main - POST request received for /login
+03 05 2022 - 11:04:53.954 [JettyServerThreadPool-19] INFO  com.revature.main.Main - http://localhost:7777/login
+03 05 2022 - 11:04:55.376 [JettyServerThreadPool-19] INFO  com.revature.main.Main - POST request has a response status 200
+03 05 2022 - 11:04:55.420 [JettyServerThreadPool-13] INFO  com.revature.main.Main - OPTIONS request received for /users/46/reimbursements
+03 05 2022 - 11:04:55.420 [JettyServerThreadPool-13] INFO  com.revature.main.Main - http://localhost:7777/users/46/reimbursements
+03 05 2022 - 11:04:55.420 [JettyServerThreadPool-13] INFO  com.revature.main.Main - OPTIONS request has a response status 200
+03 05 2022 - 11:04:55.428 [JettyServerThreadPool-18] INFO  com.revature.main.Main - GET request received for /users/46/reimbursements
+03 05 2022 - 11:04:55.428 [JettyServerThreadPool-18] INFO  com.revature.main.Main - http://localhost:7777/users/46/reimbursements
+03 05 2022 - 11:04:55.974 [JettyServerThreadPool-18] INFO  com.revature.main.Main - GET request has a response status 200
+03 05 2022 - 11:05:22.158 [JettyServerThreadPool-17] INFO  com.revature.main.Main - OPTIONS request received for /users/46/reimbursements
+03 05 2022 - 11:05:22.158 [JettyServerThreadPool-17] INFO  com.revature.main.Main - http://localhost:7777/users/46/reimbursements
+03 05 2022 - 11:05:22.158 [JettyServerThreadPool-17] INFO  com.revature.main.Main - OPTIONS request has a response status 200
+03 05 2022 - 11:05:22.162 [JettyServerThreadPool-18] INFO  com.revature.main.Main - POST request received for /users/46/reimbursements
+03 05 2022 - 11:05:22.162 [JettyServerThreadPool-18] INFO  com.revature.main.Main - http://localhost:7777/users/46/reimbursements
+03 05 2022 - 11:05:23.925 [JettyServerThreadPool-18] INFO  com.revature.main.Main - POST request has a response status 200
+03 05 2022 - 11:05:24.021 [JettyServerThreadPool-17] INFO  com.revature.main.Main - GET request received for /users/46/reimbursements
+03 05 2022 - 11:05:24.022 [JettyServerThreadPool-17] INFO  com.revature.main.Main - http://localhost:7777/users/46/reimbursements
+03 05 2022 - 11:05:24.543 [JettyServerThreadPool-17] INFO  com.revature.main.Main - GET request has a response status 200
