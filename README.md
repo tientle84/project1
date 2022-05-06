@@ -8,7 +8,7 @@ The Expense Reimbursement System (ERS) will manage the process of reimbursing em
 
 👉 Frontend repo: https://github.com/tientle84/project1-frontend.git
 
-👉 Frontend demo: [https://reimbang.herokuapp.com/](https://reimbang.herokuapp.com/)
+👉 Frontend demo: [https://ers-fe.herokuapp.com/](https://ers-fe.herokuapp.com)
 
 ## Technologies Used
 
